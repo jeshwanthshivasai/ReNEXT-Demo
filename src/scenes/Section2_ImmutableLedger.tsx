@@ -83,7 +83,7 @@ export const Section2_ImmutableLedger: React.FC = () => {
 
             <div style={{
                 position: 'absolute',
-                top: 30, // Compact header to reclaim bottom space
+                top: 70, // Moved down (was 30)
                 width: '100%',
                 textAlign: 'center',
                 zIndex: 10,
@@ -98,10 +98,10 @@ export const Section2_ImmutableLedger: React.FC = () => {
             </div>
 
             <AbsoluteFill style={{
-                padding: '100px 80px 80px 80px', // Uniform 80px padding (top adjusted for title)
+                padding: '180px 80px 80px 80px', // Shifted down (was 100px)
                 display: 'flex',
                 flexDirection: 'column',
-                justifyContent: 'center', // Vertically center the entire architecture
+                justifyContent: 'center', 
                 gap: 20
             }}>
 
@@ -130,8 +130,8 @@ export const Section2_ImmutableLedger: React.FC = () => {
                     </div>
                 </div>
 
-                {/* --- Foundational Entity 1 --- */}
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+                {/* --- Foundational Entity 1 (RE Record) --- */}
+                <div style={{ display: 'flex', width: '100%', marginTop: 20 }}>
                     {(() => {
                         const entity = ENTITIES[0];
                         const anim = spring({ frame: frame - START_OFFSET, fps, config: { damping: 18 } });
@@ -162,7 +162,7 @@ export const Section2_ImmutableLedger: React.FC = () => {
                                         <div style={{ background: COLOR_GREEN, color: COLOR_DARK_BLUE, padding: '3px 12px', borderRadius: 4, fontSize: 14, fontWeight: 800 }}>{entity.status}</div>
                                     </div>
                                 </div>
-                                <div style={{ padding: '16px 40px', display: 'flex', justifyContent: 'space-between', gap: 15 }}>
+                                <div style={{ padding: '16px 40px', display: 'flex', width: '100%', gap: 15 }}>
                                     {entity.fields.map((f, i) => (
                                         <div key={i} style={{ flex: 1, padding: '14px 5px', background: 'rgba(150, 202, 56, 0.05)', border: '1px solid rgba(150, 202, 56, 0.15)', borderRadius: 8, textAlign: 'center' }}>
                                             <Typography text={f} fontSize={14} fontWeight={600} color="#fff" />
@@ -187,9 +187,9 @@ export const Section2_ImmutableLedger: React.FC = () => {
                         const col = idIdx < 5 ? (idIdx - 1) : (idIdx - 5);
                         const row = idIdx < 5 ? 0 : 1;
                         const targetX = 80 + (col * (1760 / 4)) + 210;
-                        const targetY = row === 0 ? 280 : 530;
+                        const targetY = row === 0 ? 340 : 590; // Shifted targets down (+60px)
                         const baseX = 960;
-                        const baseY = 840;
+                        const baseY = 900; // Shifted base down (+60px)
                         return (
                             <path key={idIdx} d={`M ${baseX} ${baseY} L ${targetX} ${targetY}`} stroke="url(#lineGrad)" strokeWidth="2" strokeDasharray="10,20" strokeDashoffset={-frame * 5} opacity={anim} fill="none" />
                         );
