@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { PulsatingGrid } from '../components/PulsatingGrid';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
@@ -20,6 +20,7 @@ export const Section11_Outro: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+            {frame >= 30 && <Audio src={staticFile('audio/outro.wav')} />}
             <div style={{
                 position: 'absolute',
                 inset: 0,

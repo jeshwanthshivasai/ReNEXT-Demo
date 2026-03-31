@@ -1,8 +1,7 @@
-import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
-import { ShieldCheck, Network, Database, Users } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 export const Section3_Solution: React.FC = () => {
     const frame = useCurrentFrame();
@@ -21,6 +20,7 @@ export const Section3_Solution: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+            {frame >= 30 && <Audio src={staticFile('audio/solution.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{
                     position: 'relative',
@@ -40,7 +40,6 @@ export const Section3_Solution: React.FC = () => {
                         borderRadius: '50%',
                         background: `radial-gradient(circle, ${COLOR_GREEN}44 0%, transparent 70%)`,
                         filter: 'blur(30px)',
-                        animation: 'pulse 2s infinite',
                     }} />
 
                     <div style={{

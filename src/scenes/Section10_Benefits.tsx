@@ -1,70 +1,76 @@
-import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
-import { ShieldCheck, Zap, Search, Gavel, BarChart3 } from 'lucide-react';
+import { ShieldCheck, Zap, Users, Globe } from 'lucide-react';
 
 export const Section10_Benefits: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const anim = spring({
-        frame,
-        fps,
-        config: { damping: 15, stiffness: 100 },
-    });
-
     const benefits = [
-        { id: 1, text: "Unwavering Trust", icon: ShieldCheck, delay: 0 },
-        { id: 2, text: "Accelerated Speed", icon: Zap, delay: 40 },
-        { id: 3, text: "End-to-End Transparency", icon: Search, delay: 80 },
-        { id: 4, text: "Automated Compliance", icon: Gavel, delay: 120 },
-        { id: 5, text: "Data-Driven Decisions", icon: BarChart3, delay: 160 },
+        { id: 1, title: "Unwavering Trust", desc: "Immutable records for every parcel.", icon: ShieldCheck, delay: 0 },
+        { id: 2, title: "Accelerated Speed", desc: "Days to minutes for registrations.", icon: Zap, delay: 20 },
+        { id: 3, title: "Unified Ecosystem", desc: "Seamless cross-department flow.", icon: Users, delay: 40 },
+        { id: 4, title: "Automated Compliance", desc: "Zero-Trust policy enforcement.", icon: Globe, delay: 60 },
     ];
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814' }}>
-            <AbsoluteFill style={{ padding: 100, justifyContent: 'center' }}>
-                <div style={{ marginBottom: 60 }}>
+            {frame >= 30 && <Audio src={staticFile('audio/benefits.wav')} />}
+            <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center', padding: 80 }}>
+                <div style={{ marginBottom: 80, textAlign: 'center' }}>
                     <Typography
                         text="WHY RENEXT?"
                         fontSize={48}
                         color={COLOR_GREEN}
-                        fontWeight={600}
-                        letterSpacing={2}
+                        fontWeight={700}
+                        letterSpacing={4}
                     />
-                    <div style={{
-                        marginTop: 10,
-                        width: interpolate(anim, [0, 1], [0, 400]),
-                        height: 4,
-                        background: COLOR_GREEN,
-                    }} />
+                    <Typography
+                        text="The Standard for Data-Driven Governance"
+                        fontSize={24}
+                        color="#8892b0"
+                    />
                 </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 20 }}>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1fr 1fr',
+                    gap: 40,
+                    width: '100%',
+                }}>
                     {benefits.map((benefit, i) => {
                         const benefitAnim = spring({
                             frame: frame - benefit.delay,
                             fps,
-                            config: { damping: 12, stiffness: 100 },
+                            config: { damping: 15, stiffness: 100 },
                         });
                         const op = interpolate(benefitAnim, [0, 1], [0, 1]);
-                        const tx = interpolate(benefitAnim, [0, 1], [-30, 0]);
+                        const x = interpolate(benefitAnim, [0, 1], [50, 0]);
 
                         return (
                             <div key={benefit.id} style={{
+                                backgroundColor: `${COLOR_DARK_BLUE}ee`,
+                                padding: '30px 40px',
+                                borderRadius: 24,
+                                borderLeft: `6px solid ${COLOR_GREEN}`,
+                                opacity: op,
+                                transform: `translateX(${x}px)`,
                                 display: 'flex',
                                 alignItems: 'center',
                                 gap: 30,
-                                opacity: op,
-                                transform: `translateX(${tx}px)`,
-                                backgroundColor: `${COLOR_DARK_BLUE}aa`,
-                                padding: '24px 40px',
-                                borderRadius: 16,
-                                border: `1px solid ${COLOR_GREEN}33`,
                             }}>
-                                <benefit.icon size={48} color={COLOR_GREEN} />
-                                <Typography text={benefit.text} fontSize={32} color="#fff" fontWeight={600} />
+                                <div style={{
+                                    backgroundColor: `${COLOR_GREEN}11`,
+                                    padding: 20,
+                                    borderRadius: '50%',
+                                }}>
+                                    <benefit.icon size={48} color={COLOR_GREEN} />
+                                </div>
+                                <div style={{ flex: 1 }}>
+                                    <Typography text={benefit.title} fontSize={28} color="#fff" fontWeight={600} />
+                                    <Typography text={benefit.desc} fontSize={18} color="#8892b0" fontWeight={400} />
+                                </div>
                             </div>
                         );
                     })}

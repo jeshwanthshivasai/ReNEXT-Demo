@@ -1,5 +1,4 @@
-import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
 import { Bot, UserCheck, Zap, ShieldCheck } from 'lucide-react';
@@ -25,6 +24,7 @@ export const Section5_AIHuman: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814', flexDirection: 'row' }}>
+            {frame >= 30 && <Audio src={staticFile('audio/ai_human.wav')} />}
             <div style={{
                 flex: 1,
                 backgroundColor: COLOR_DARK_BLUE,

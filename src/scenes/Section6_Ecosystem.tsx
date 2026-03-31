@@ -1,5 +1,4 @@
-import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
 import { Building2, User, Landmark, ShieldCheck } from 'lucide-react';
@@ -28,6 +27,7 @@ export const Section6_Ecosystem: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+            {frame >= 30 && <Audio src={staticFile('audio/ecosystem.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{ position: 'relative', width: 800, height: 800 }}>
                     {/* Unified Hub appearing in the center */}

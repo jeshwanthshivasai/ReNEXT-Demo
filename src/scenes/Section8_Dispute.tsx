@@ -1,8 +1,7 @@
-import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
-import { Gavel, ArrowUpCircle, Database, ShieldAlert } from 'lucide-react';
+import { Gavel, ArrowUp, CheckCircle, ShieldIcon } from 'lucide-react';
 
 export const Section8_Dispute: React.FC = () => {
     const frame = useCurrentFrame();
@@ -11,110 +10,101 @@ export const Section8_Dispute: React.FC = () => {
     const anim = spring({
         frame,
         fps,
-        config: { damping: 15, stiffness: 100 },
+        config: { damping: 12, stiffness: 100 },
     });
 
-    const levels = [
-        { id: 1, name: "VILLAGE", delay: 30 },
-        { id: 2, name: "DIVISION", delay: 90 },
-        { id: 3, name: "DISTRICT", delay: 150 },
-        { id: 4, name: "STATE", delay: 210 },
+    const escalations = [
+        { id: 1, text: "Village Level", color: `${COLOR_GREEN}44`, delay: 0 },
+        { id: 2, text: "Mandal Level", color: `${COLOR_GREEN}66`, delay: 20 },
+        { id: 3, text: "District Level", color: `${COLOR_GREEN}88`, delay: 40 },
+        { id: 4, text: "State Level", color: COLOR_GREEN, delay: 60 },
     ];
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814' }}>
-            <AbsoluteFill style={{ padding: 100, justifyContent: 'center' }}>
-                <div style={{ marginBottom: 60 }}>
+            {frame >= 30 && <Audio src={staticFile('audio/dispute.wav')} />}
+            <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <div style={{ position: 'absolute', top: 100, textAlign: 'center' }}>
                     <Typography
                         text="DISPUTE RESOLUTION ENGINE"
-                        fontSize={48}
+                        fontSize={36}
                         color={COLOR_GREEN}
                         fontWeight={600}
                         letterSpacing={2}
                     />
-                    <div style={{
-                        marginTop: 10,
-                        width: interpolate(anim, [0, 1], [0, 600]),
-                        height: 4,
-                        background: COLOR_GREEN,
-                    }} />
+                    <Typography
+                        text="Automated, Rapid Escalation"
+                        fontSize={20}
+                        color="#8892b0"
+                        style={{ marginTop: 10 }}
+                    />
                 </div>
 
-                <div style={{ position: 'relative', height: 600 }}>
-                    {levels.map((level, i) => {
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: 30,
+                    width: 600,
+                    marginTop: 100,
+                }}>
+                    {escalations.map((level, i) => {
                         const levelAnim = spring({
                             frame: frame - level.delay,
                             fps,
-                            config: { damping: 12, stiffness: 100 },
+                            config: { damping: 15, stiffness: 100 },
                         });
+                        const y = interpolate(levelAnim, [0, 1], [30, 0]);
                         const op = interpolate(levelAnim, [0, 1], [0, 1]);
-                        const tx = interpolate(levelAnim, [0, 1], [20, 0]);
 
                         return (
                             <div key={level.id} style={{
+                                width: '100%',
                                 display: 'flex',
                                 alignItems: 'center',
-                                gap: 30,
-                                marginBottom: 40,
+                                gap: 20,
                                 opacity: op,
-                                transform: `translateX(${tx}px)`,
+                                transform: `translateY(${y}px)`,
                             }}>
                                 <div style={{
+                                    backgroundColor: level.color,
                                     width: 100,
-                                    height: 100,
+                                    height: 10,
+                                    borderRadius: 5,
+                                    boxShadow: `0 0 20px ${level.color}44`,
+                                }} />
+                                <div style={{
+                                    flex: 1,
                                     backgroundColor: COLOR_DARK_BLUE,
-                                    borderRadius: 16,
-                                    border: `2px solid ${COLOR_GREEN}`,
+                                    padding: '15px 30px',
+                                    borderRadius: 12,
+                                    border: `1px solid ${COLOR_GREEN}22`,
                                     display: 'flex',
-                                    justifyContent: 'center',
                                     alignItems: 'center',
+                                    justifyContent: 'space-between',
                                 }}>
-                                    <ShieldAlert size={48} color={COLOR_GREEN} />
+                                    <Typography text={level.text} fontSize={20} color="#fff" fontWeight={500} />
+                                    {i < escalations.length - 1 && <ArrowUp size={20} color={COLOR_GREEN} />}
+                                    {i === escalations.length - 1 && <CheckCircle size={20} color={COLOR_GREEN} />}
                                 </div>
-                                <div style={{ flex: 1 }}>
-                                    <Typography text={level.name} fontSize={32} color="#fff" fontWeight={700} />
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: 10,
-                                        marginTop: 5,
-                                    }}>
-                                        <Database size={16} color={COLOR_GREEN} />
-                                        <Typography text="Automated Data Pulling" fontSize={18} color="#8892b0" />
-                                    </div>
-                                </div>
-                                {i < levels.length - 1 && (
-                                    <div style={{
-                                        position: 'absolute',
-                                        bottom: -40,
-                                        left: 50,
-                                        opacity: levelAnim,
-                                    }}>
-                                        <ArrowUpCircle size={32} color={COLOR_GREEN} />
-                                    </div>
-                                )}
                             </div>
                         );
                     })}
                 </div>
 
                 <div style={{
-                    position: 'absolute',
-                    right: 150,
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                    width: 300,
-                    textAlign: 'right',
-                    opacity: interpolate(frame, [250, 280], [0, 1]),
+                    marginTop: 60,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 15,
+                    backgroundColor: `${COLOR_GREEN}11`,
+                    padding: '10px 25px',
+                    borderRadius: 30,
+                    border: `1px solid ${COLOR_GREEN}44`,
+                    opacity: interpolate(frame, [100, 130], [0, 1]),
                 }}>
-                    <Gavel size={120} color={COLOR_GREEN} style={{ marginLeft: 'auto' }} />
-                    <Typography
-                        text="POWERED BY IMMUTABLE RECORDS"
-                        fontSize={24}
-                        color={COLOR_GREEN}
-                        fontWeight={600}
-                        style={{ marginTop: 20 }}
-                    />
+                    <ShieldIcon size={24} color={COLOR_GREEN} />
+                    <Typography text="Powered by Immutable Records" fontSize={18} color={COLOR_GREEN} fontWeight={500} />
                 </div>
             </AbsoluteFill>
         </AbsoluteFill>

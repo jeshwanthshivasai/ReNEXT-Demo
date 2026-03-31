@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill } from 'remotion';
+import { AbsoluteFill, Audio, staticFile } from 'remotion';
 import { TransitionSeries, linearTiming } from "@remotion/transitions";
 import { fade } from "@remotion/transitions/fade";
 
@@ -20,7 +20,7 @@ import { Section11_Outro } from './scenes/Section11_Outro';
 
 export const Main: React.FC = () => {
     return (
-        <AbsoluteFill style={{ backgroundColor: COLOR_WHITE }}>
+        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
             <TransitionSeries>
                 <TransitionSeries.Sequence durationInFrames={DURATIONS.INTRO}>
                     <Section1_Intro />

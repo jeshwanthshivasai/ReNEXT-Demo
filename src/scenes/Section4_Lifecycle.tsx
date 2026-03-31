@@ -1,9 +1,9 @@
 import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { MediaPlaceholder } from '../components/MediaPlaceholder';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
-import { PlusCircle, User, DollarSign, Gavel, History, CheckCircle } from 'lucide-react';
+import { PlusCircle, User, DollarSign, Gavel, History } from 'lucide-react';
 
 export const Section4_Lifecycle: React.FC = () => {
     const frame = useCurrentFrame();
@@ -29,6 +29,7 @@ export const Section4_Lifecycle: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+            {frame >= 30 && <Audio src={staticFile('audio/lifecycle.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{
                     position: 'absolute',

@@ -1,96 +1,94 @@
 import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { MediaPlaceholder } from '../components/MediaPlaceholder';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
-import { ShieldCheck, User, PenTool, Database, DollarSign, CheckCircle } from 'lucide-react';
+import { ShieldCheck, FileText, Lock, Key, Signature } from 'lucide-react';
 
 export const Section7_ZeroTrust: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const anim = spring({
-        frame,
-        fps,
-        config: { damping: 15, stiffness: 100 },
-    });
-
     const steps = [
-        { id: 1, text: "Price Validation", icon: ShieldCheck, delay: 30 },
-        { id: 2, text: "Digital Signature", icon: PenTool, delay: 90 },
-        { id: 3, text: "Escrow Allocation", icon: DollarSign, delay: 150 },
-        { id: 4, text: "Immutable Audit Trail", icon: Database, delay: 210 },
+        { id: 1, text: "Price Validation", icon: FileText, delay: 0 },
+        { id: 2, text: "Digital Signatures", icon: Signature, delay: 30 },
+        { id: 3, text: "Escrow & Payment", icon: Lock, delay: 60 },
+        { id: 4, text: "Final Registration", icon: Key, delay: 90 },
     ];
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814' }}>
-            <AbsoluteFill style={{ padding: 40, justifyContent: 'center', alignItems: 'center' }}>
-                <div style={{ marginBottom: 20, zIndex: 100 }}>
+            {frame >= 30 && <Audio src={staticFile('audio/zero_trust.wav')} />}
+            <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <div style={{ position: 'absolute', top: 100, textAlign: 'center' }}>
                     <Typography
-                        text="ZERO-TRUST TRANSACTION"
-                        fontSize={40}
+                        text="ZERO-TRUST TRANSACTION FLOW"
+                        fontSize={36}
                         color={COLOR_GREEN}
                         fontWeight={600}
                         letterSpacing={2}
                     />
-                    <div style={{
-                        marginTop: 10,
-                        width: interpolate(anim, [0, 1], [0, 500]),
-                        height: 4,
-                        background: COLOR_GREEN,
-                    }} />
+                    <Typography
+                        text="Secure, Immutable, Verifiable"
+                        fontSize={20}
+                        color="#8892b0"
+                        style={{ marginTop: 10 }}
+                    />
                 </div>
 
-                <div style={{ display: 'flex', width: '100%', height: '70%', gap: 30 }}>
-                    {/* App Recording Placeholder */}
-                    <div style={{ flex: 1.5, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    gap: 40,
+                    width: '90%',
+                    height: '60%',
+                    marginTop: 50,
+                }}>
+                    <div style={{ flex: 1.5 }}>
                         <MediaPlaceholder 
-                            label="TRANSACTION SYSTEM RECORDING"
-                            type="video"
-                            width="100%" 
-                            height="100%"
+                           label="TRANSACTION FLOW RECORDING"
+                           type="video"
                         />
                     </div>
 
-                    {/* Step-by-Step Validation List */}
-                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 15, justifyContent: 'center' }}>
-                        {steps.map((step, index) => {
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 20 }}>
+                        {steps.map((step, i) => {
                             const stepAnim = spring({
                                 frame: frame - step.delay,
                                 fps,
-                                config: { damping: 12, stiffness: 100 },
+                                config: { damping: 15, stiffness: 100 },
                             });
+                            const x = interpolate(stepAnim, [0, 1], [50, 0]);
                             const op = interpolate(stepAnim, [0, 1], [0, 1]);
-                            const tx = interpolate(stepAnim, [0, 1], [30, 0]);
 
                             return (
                                 <div key={step.id} style={{
-                                    backgroundColor: `${COLOR_DARK_BLUE}cc`,
-                                    padding: 20,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 20,
+                                    backgroundColor: `${COLOR_DARK_BLUE}ee`,
+                                    padding: '20px 30px',
                                     borderRadius: 16,
                                     border: `1px solid ${COLOR_GREEN}44`,
                                     opacity: op,
-                                    transform: `translateX(${tx}px)`,
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: 15
+                                    transform: `translateX(${x}px)`,
+                                    boxShadow: `0 4px 20px rgba(0,0,0,0.3)`,
                                 }}>
-                                    <step.icon size={32} color={COLOR_GREEN} />
-                                    <Typography text={step.text} fontSize={18} color="#fff" fontWeight={500} />
+                                    <div style={{
+                                        backgroundColor: `${COLOR_GREEN}22`,
+                                        padding: 10,
+                                        borderRadius: 12,
+                                    }}>
+                                        <step.icon size={32} color={COLOR_GREEN} />
+                                    </div>
+                                    <Typography text={step.text} fontSize={22} color="#fff" fontWeight={500} />
+                                    <div style={{ marginLeft: 'auto' }}>
+                                        <ShieldCheck size={24} color={COLOR_GREEN} opacity={stepAnim} />
+                                    </div>
                                 </div>
                             );
                         })}
-
-                        <div style={{
-                            marginTop: 20,
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 15,
-                            opacity: interpolate(frame, [350, 380], [0, 1]),
-                        }}>
-                            <CheckCircle size={32} color={COLOR_GREEN} />
-                            <Typography text="COMPLETED & REGISTERED" fontSize={24} color={COLOR_GREEN} fontWeight={700} />
-                        </div>
                     </div>
                 </div>
             </AbsoluteFill>

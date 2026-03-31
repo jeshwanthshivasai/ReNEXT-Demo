@@ -1,5 +1,4 @@
-import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { PulsatingGrid } from '../components/PulsatingGrid';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
@@ -19,6 +18,7 @@ export const Section1_Intro: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+            <Audio src={staticFile('audio/intro.wav')} />
             <div style={{
                 position: 'absolute',
                 inset: 0,
