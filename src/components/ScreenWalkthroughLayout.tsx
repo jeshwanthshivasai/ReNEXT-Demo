@@ -11,8 +11,6 @@ interface ScreenWalkthroughLayoutProps {
     label: string;
     badgeText?: string;
     rotationY?: number;
-    startFrom?: number;
-    endAt?: number;
 }
 
 export const ScreenWalkthroughLayout: React.FC<ScreenWalkthroughLayoutProps> = ({
@@ -22,8 +20,6 @@ export const ScreenWalkthroughLayout: React.FC<ScreenWalkthroughLayoutProps> = (
     label,
     badgeText = "LIVE INTERFACE",
     rotationY = -5, // Subtle 3D skew
-    startFrom,
-    endAt,
 }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
@@ -106,8 +102,6 @@ export const ScreenWalkthroughLayout: React.FC<ScreenWalkthroughLayoutProps> = (
                         width="100%" 
                         height="100%"
                         disableAnimation={true} // Animation handled by layout
-                        startFrom={startFrom}
-                        endAt={endAt}
                     />
 
                     {/* Bottom Reflection Glow (Simulated) */}

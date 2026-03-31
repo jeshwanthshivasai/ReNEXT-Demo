@@ -11,8 +11,6 @@ interface MediaPlaceholderProps {
     borderRadius?: number;
     delay?: number;
     disableAnimation?: boolean;
-    startFrom?: number;
-    endAt?: number;
 }
 
 export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
@@ -24,8 +22,6 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
     borderRadius = 20,
     delay = 0,
     disableAnimation = false,
-    startFrom,
-    endAt,
 }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
@@ -98,13 +94,7 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
             }}>
                 {src ? (
                     type === 'video' ? (
-                        <Video 
-                            src={src} 
-                            muted 
-                            style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
-                            startFrom={startFrom}
-                            endAt={endAt}
-                        />
+                        <Video src={src} muted style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                     ) : (
                         <Img src={src} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                     )
