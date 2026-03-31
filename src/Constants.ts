@@ -12,8 +12,11 @@ export const DURATIONS = {
     SOLUTION: 277,               // 9.23s
     USER_MANAGEMENT: 1239,       // Trimmed (Manual: 1:04:26)
     ENTITY_VIEW: 1646,           // 54.87s
+    ENTITY_REG: 4692,            // Exact Video: 156.40s (Verified)
+    DEV_PERMIT: 750,             // NEW: ~25.00s (Estimated)
     FINANCIAL_INTEL: 1003,       // 33.43s
-    ENTITY_REG: 939,             // 31.30s
+    ANALYSIS_HUB: 717,           // Exact Video: 23.90s (Verified)
+    INVESTOR_PORTAL: 1230,       // Exact Video: 41.00s (Verified)
     AI_HUMAN: 281,               // 9.37s
     ECOSYSTEM: 249,              // Existing Section 6: 8.30s
     ZERO_TRUST: 321,             // 10.70s

@@ -9,7 +9,10 @@ import { Section2b_ProfileOverview } from './scenes/Section2b_ProfileOverview';
 import { Section4a_UserManagement } from './scenes/Section4a_UserManagement';
 import { Section4b_EntityView } from './scenes/Section4b_EntityView';
 import { Section4c_EntityRegistration } from './scenes/Section4c_EntityRegistration';
+import { Section4e_DevelopmentPermit } from './scenes/Section4e_DevelopmentPermit';
 import { Section4d_FinancialIntel } from './scenes/Section4d_FinancialIntel';
+import { Section4f_AnalysisHub } from './scenes/Section4f_AnalysisHub';
+import { Section4g_InvestorPortal } from './scenes/Section4g_InvestorPortal';
 import { Section9_Dashboard } from './scenes/Section9_Dashboard';
 import { Section10_Benefits } from './scenes/Section10_Benefits';
 import { Section11_Outro } from './scenes/Section11_Outro';
@@ -64,8 +67,20 @@ export const Main: React.FC = () => {
                     <Section4c_EntityRegistration />
                 </Series.Sequence>
 
+                <Series.Sequence durationInFrames={DURATIONS.DEV_PERMIT}>
+                    <Section4e_DevelopmentPermit />
+                </Series.Sequence>
+
                 <Series.Sequence durationInFrames={DURATIONS.FINANCIAL_INTEL}>
                     <Section4d_FinancialIntel />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.ANALYSIS_HUB}>
+                    <Section4f_AnalysisHub />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.INVESTOR_PORTAL}>
+                    <Section4g_InvestorPortal />
                 </Series.Sequence>
 
                 {/* ------------------------------------ */}

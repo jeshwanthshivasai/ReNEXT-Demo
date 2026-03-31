@@ -8,11 +8,12 @@ export const Section4c_EntityRegistration: React.FC = () => {
             <ScreenWalkthroughLayout 
                 title="ENTITY REGISTRATION"
                 subtitle="Streamlined Asset Digitization & Compliance"
-                videoSrc={staticFile('screens/Entity Registration.mp4')}
+                videoSrc={staticFile('screens/Register Property.mov')}
                 label="ENTITY REGISTRATION"
                 badgeText="DIGITIZATION PORTAL"
                 rotationY={5} // Alternating tilt
             />
+            {/* Temporary debug to find exact duration */}
         </AbsoluteFill>
     );
 };
