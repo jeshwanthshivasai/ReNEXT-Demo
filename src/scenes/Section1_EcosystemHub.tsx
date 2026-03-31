@@ -235,9 +235,28 @@ export const Section1_EcosystemHub: React.FC = () => {
                 </div>
 
                 <svg width="100%" height="100%" viewBox="0 0 1920 1080" style={{ position: 'absolute', pointerEvents: 'none' }}>
-                    <line x1="600" y1="540" x2="860" y2="540" stroke={COLOR_GREEN} strokeWidth="1" strokeDasharray="5,5" opacity={hubAnim * 0.3} />
-                    <line x1="1060" y1="460" x2="1300" y2="350" stroke={COLOR_GREEN} strokeWidth="1" strokeDasharray="5,5" opacity={hubAnim * 0.3} />
-                    <line x1="1060" y1="620" x2="1300" y2="730" stroke={COLOR_GREEN} strokeWidth="1" strokeDasharray="5,5" opacity={hubAnim * 0.3} />
+                    {/* Left Connection (Straight) */}
+                    <line x1="600" y1="540" x2="860" y2="540" stroke={COLOR_GREEN} strokeWidth="3" strokeDasharray="8,8" opacity={hubAnim * 0.7} />
+                    
+                    {/* Right Upper Connection (Orthogonal) */}
+                    <polyline 
+                        points="1060,540 1180,540 1180,350 1300,350" 
+                        fill="none" 
+                        stroke={COLOR_GREEN} 
+                        strokeWidth="3" 
+                        strokeDasharray="8,8" 
+                        opacity={hubAnim * 0.7} 
+                    />
+                    
+                    {/* Right Lower Connection (Orthogonal) */}
+                    <polyline 
+                        points="1060,540 1180,540 1180,730 1300,730" 
+                        fill="none" 
+                        stroke={COLOR_GREEN} 
+                        strokeWidth="3" 
+                        strokeDasharray="8,8" 
+                        opacity={hubAnim * 0.7} 
+                    />
                 </svg>
 
             </AbsoluteFill>

@@ -19,7 +19,7 @@ export const DURATIONS = {
     ZERO_TRUST: 321,             // 10.70s
     DISPUTE: 293,                // 9.77s
     DASHBOARD: 287,              // 9.57s
-    BENEFITS: 312,               // 10.40s
+    BENEFITS: 190,               // WHY RENEXT: 6.33s (Snappier exit)
     OUTRO: 172                   // 5.73s
 };
 
