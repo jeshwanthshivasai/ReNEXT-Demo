@@ -80,7 +80,7 @@ export const Section1_Intro: React.FC = () => {
                         }} />
                     </div>
 
-                    <div style={{ marginTop: 40, opacity: interpolate(frame, [40, 70], [0, 1], { extrapolateLeft: 'clamp' }) }}>
+                    <div style={{ marginTop: 40, opacity: interpolate(frame, [20, 50], [0, 1], { extrapolateLeft: 'clamp' }) }}>
                         <Typography
                             text="For Real Estate Ecosystem"
                             fontSize={24}

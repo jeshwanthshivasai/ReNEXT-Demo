@@ -5,17 +5,17 @@ export const COLOR_WHITE = '#ffffff';
 export const FPS = 30;
 
 export const DURATIONS = {
-    INTRO: 10 * FPS,            // 0:00 - 0:10
-    PROBLEM: 20 * FPS,          // 0:10 - 0:30
-    SOLUTION: 15 * FPS,         // 0:30 - 0:45
-    LIFECYCLE: 30 * FPS,        // 0:45 - 1:15
-    AI_HUMAN: 15 * FPS,         // 1:15 - 1:30
-    ECOSYSTEM: 15 * FPS,        // 1:30 - 1:45
-    ZERO_TRUST: 20 * FPS,       // 1:45 - 2:05
-    DISPUTE: 15 * FPS,          // 2:05 - 2:20
-    DASHBOARD: 20 * FPS,        // 2:20 - 2:40
-    BENEFITS: 25 * FPS,         // 2:40 - 3:05
-    OUTRO: 15 * FPS             // 3:05 - 3:20
+    INTRO: 4 * FPS,             // 0:00 - 0:04
+    PROBLEM: 20 * FPS,          // 0:04 - 0:24
+    SOLUTION: 15 * FPS,         // 0:24 - 0:39
+    LIFECYCLE: 30 * FPS,        // 0:39 - 1:09
+    AI_HUMAN: 15 * FPS,         // 1:09 - 1:24
+    ECOSYSTEM: 15 * FPS,        // 1:24 - 1:39
+    ZERO_TRUST: 20 * FPS,       // 1:39 - 1:59
+    DISPUTE: 15 * FPS,          // 1:59 - 2:14
+    DASHBOARD: 20 * FPS,        // 2:14 - 2:34
+    BENEFITS: 25 * FPS,         // 2:34 - 2:59
+    OUTRO: 4 * FPS              // 2:59 - 3:03
 };
 
 // Account for 10 transitions of 30 frames each (overlap)

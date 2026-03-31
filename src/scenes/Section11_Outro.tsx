@@ -87,7 +87,7 @@ export const Section11_Outro: React.FC = () => {
                 <div style={{
                     position: 'absolute',
                     bottom: 100,
-                    opacity: interpolate(frame, [150, 180], [0, 1]),
+                    opacity: interpolate(frame, [60, 90], [0, 1]),
                 }}>
                     <Typography
                         text="Re-imagining Governance. Re-defining Trust."
