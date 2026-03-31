@@ -1,7 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
-import { PulsatingGrid } from '../components/PulsatingGrid';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
 import { ShieldCheck } from 'lucide-react';
 
@@ -19,13 +18,8 @@ export const Section11_Outro: React.FC = () => {
     const opacity = interpolate(anim, [0, 0.5], [0, 1]);
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             {frame >= 30 && <Audio src={staticFile('audio/outro.wav')} />}
-            <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: `linear-gradient(135deg, #050814 0%, #0a1226 50%, #050814 100%)`,
-            }} />
             
             <div style={{
                 position: 'absolute',
@@ -39,7 +33,6 @@ export const Section11_Outro: React.FC = () => {
                 filter: 'blur(120px)',
             }} />
 
-            <PulsatingGrid />
 
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{

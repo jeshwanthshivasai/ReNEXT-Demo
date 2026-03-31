@@ -26,7 +26,7 @@ export const Section6_Ecosystem: React.FC = () => {
     ];
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             {frame >= 30 && <Audio src={staticFile('audio/ecosystem.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{ position: 'relative', width: 800, height: 800 }}>

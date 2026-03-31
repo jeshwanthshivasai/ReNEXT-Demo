@@ -21,7 +21,7 @@ export const Section8_Dispute: React.FC = () => {
     ];
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             {frame >= 30 && <Audio src={staticFile('audio/dispute.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{ position: 'absolute', top: 100, textAlign: 'center' }}>

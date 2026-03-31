@@ -19,7 +19,7 @@ export const Section3_Solution: React.FC = () => {
     const stakeholders = ["Govt", "Citizens", "Commercial", "Agents", "Mandal", "District"];
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             {frame >= 30 && <Audio src={staticFile('audio/solution.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{

@@ -1,15 +1,14 @@
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile } from 'remotion';
-import { TransitionSeries, linearTiming } from "@remotion/transitions";
-import { fade } from "@remotion/transitions/fade";
+import { Series, AbsoluteFill } from 'remotion';
 
-import { DURATIONS, COLOR_WHITE } from './Constants';
-
-// Scenes (to be created)
+// All Scenes
 import { Section1_Intro } from './scenes/Section1_Intro';
 import { Section2_Problem } from './scenes/Section2_Problem';
 import { Section3_Solution } from './scenes/Section3_Solution';
-import { Section4_Lifecycle } from './scenes/Section4_Lifecycle';
+import { Section4a_UserManagement } from './scenes/Section4a_UserManagement';
+import { Section4b_EntityView } from './scenes/Section4b_EntityView';
+import { Section4d_FinancialIntel } from './scenes/Section4d_FinancialIntel';
+import { Section4c_EntityRegistration } from './scenes/Section4c_EntityRegistration';
 import { Section5_AIHuman } from './scenes/Section5_AIHuman';
 import { Section6_Ecosystem } from './scenes/Section6_Ecosystem';
 import { Section7_ZeroTrust } from './scenes/Section7_ZeroTrust';
@@ -18,94 +17,78 @@ import { Section9_Dashboard } from './scenes/Section9_Dashboard';
 import { Section10_Benefits } from './scenes/Section10_Benefits';
 import { Section11_Outro } from './scenes/Section11_Outro';
 
+import { StaticGrid } from './components/StaticGrid';
+import { DURATIONS } from './Constants';
 export const Main: React.FC = () => {
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
-            <TransitionSeries>
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.INTRO}>
+        <AbsoluteFill style={{ 
+            background: `linear-gradient(135deg, #050814 0%, #0a1226 50%, #050814 100%)` 
+        }}>
+            {/* Global Static Grid Background */}
+            <StaticGrid />
+            
+            {/* Standard Series for back-to-back playback (No Transitions) */}
+            <Series>
+                <Series.Sequence durationInFrames={DURATIONS.INTRO}>
                     <Section1_Intro />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.PROBLEM}>
+                <Series.Sequence durationInFrames={DURATIONS.PROBLEM}>
                     <Section2_Problem />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.SOLUTION}>
+                <Series.Sequence durationInFrames={DURATIONS.SOLUTION}>
                     <Section3_Solution />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.LIFECYCLE}>
-                    <Section4_Lifecycle />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                {/* --- Functional Walkthrough Trio --- */}
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.AI_HUMAN}>
+                <Series.Sequence durationInFrames={DURATIONS.USER_MANAGEMENT}>
+                    <Section4a_UserManagement />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.ENTITY_VIEW}>
+                    <Section4b_EntityView />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.FINANCIAL_INTEL}>
+                    <Section4d_FinancialIntel />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.ENTITY_REG}>
+                    <Section4c_EntityRegistration />
+                </Series.Sequence>
+
+                {/* ------------------------------------ */}
+
+                <Series.Sequence durationInFrames={DURATIONS.AI_HUMAN}>
                     <Section5_AIHuman />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.ECOSYSTEM}>
+                <Series.Sequence durationInFrames={DURATIONS.ECOSYSTEM}>
                     <Section6_Ecosystem />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.ZERO_TRUST}>
+                <Series.Sequence durationInFrames={DURATIONS.ZERO_TRUST}>
                     <Section7_ZeroTrust />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.DISPUTE}>
+                <Series.Sequence durationInFrames={DURATIONS.DISPUTE}>
                     <Section8_Dispute />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.DASHBOARD}>
+                <Series.Sequence durationInFrames={DURATIONS.DASHBOARD}>
                     <Section9_Dashboard />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.BENEFITS}>
+                <Series.Sequence durationInFrames={DURATIONS.BENEFITS}>
                     <Section10_Benefits />
-                </TransitionSeries.Sequence>
-                <TransitionSeries.Transition
-                    presentation={fade()}
-                    timing={linearTiming({ durationInFrames: 30 })}
-                />
+                </Series.Sequence>
 
-                <TransitionSeries.Sequence durationInFrames={DURATIONS.OUTRO}>
+                <Series.Sequence durationInFrames={DURATIONS.OUTRO}>
                     <Section11_Outro />
-                </TransitionSeries.Sequence>
-            </TransitionSeries>
+                </Series.Sequence>
+            </Series>
         </AbsoluteFill>
     );
 };

@@ -21,7 +21,7 @@ export const Section2_Problem: React.FC = () => {
     ];
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#0a1226' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             {frame >= 30 && <Audio src={staticFile('audio/problem.wav')} />}
             <AbsoluteFill style={{ padding: 100, justifyContent: 'center' }}>
                 <div style={{ marginBottom: 60 }}>

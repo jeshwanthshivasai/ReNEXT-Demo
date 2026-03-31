@@ -1,6 +1,5 @@
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
-import { PulsatingGrid } from '../components/PulsatingGrid';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
 
 export const Section1_Intro: React.FC = () => {
@@ -17,13 +16,8 @@ export const Section1_Intro: React.FC = () => {
     const opacity = interpolate(anim, [0, 0.5], [0, 1]);
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             <Audio src={staticFile('audio/intro.wav')} />
-            <div style={{
-                position: 'absolute',
-                inset: 0,
-                background: `linear-gradient(135deg, #050814 0%, #0a1226 50%, #050814 100%)`,
-            }} />
             
             <div style={{
                 position: 'absolute',
@@ -35,8 +29,6 @@ export const Section1_Intro: React.FC = () => {
                 top: '10%',
                 filter: 'blur(100px)',
             }} />
-
-            <PulsatingGrid />
 
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{

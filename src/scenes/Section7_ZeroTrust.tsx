@@ -17,7 +17,7 @@ export const Section7_ZeroTrust: React.FC = () => {
     ];
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             {frame >= 30 && <Audio src={staticFile('audio/zero_trust.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{ position: 'absolute', top: 100, textAlign: 'center' }}>

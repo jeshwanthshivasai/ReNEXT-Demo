@@ -15,7 +15,7 @@ export const Section10_Benefits: React.FC = () => {
     ];
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             {frame >= 30 && <Audio src={staticFile('audio/benefits.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center', padding: 80 }}>
                 <div style={{ marginBottom: 80, textAlign: 'center' }}>

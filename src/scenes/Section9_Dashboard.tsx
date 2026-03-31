@@ -16,7 +16,7 @@ export const Section9_Dashboard: React.FC = () => {
     ];
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             {frame >= 30 && <Audio src={staticFile('audio/dashboard.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{ position: 'absolute', top: 100, textAlign: 'center' }}>

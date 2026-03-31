@@ -5,18 +5,21 @@ export const COLOR_WHITE = '#ffffff';
 export const FPS = 30;
 
 export const DURATIONS = {
-    INTRO: 4 * FPS,             // 0:00 - 0:04
-    PROBLEM: 20 * FPS,          // 0:04 - 0:24
-    SOLUTION: 15 * FPS,         // 0:24 - 0:39
-    LIFECYCLE: 30 * FPS,        // 0:39 - 1:09
-    AI_HUMAN: 15 * FPS,         // 1:09 - 1:24
-    ECOSYSTEM: 15 * FPS,        // 1:24 - 1:39
-    ZERO_TRUST: 20 * FPS,       // 1:39 - 1:59
-    DISPUTE: 15 * FPS,          // 1:59 - 2:14
-    DASHBOARD: 20 * FPS,        // 2:14 - 2:34
-    BENEFITS: 25 * FPS,         // 2:34 - 2:59
-    OUTRO: 4 * FPS              // 2:59 - 3:03
+    INTRO: 147,                 // 4.90s
+    PROBLEM: 373,               // 12.43s
+    SOLUTION: 277,              // 9.23s
+    USER_MANAGEMENT: 1239,      // Trimmed (Manual: 1:04:26)
+    ENTITY_VIEW: 1646,          // 54.87s
+    FINANCIAL_INTEL: 1003,      // 33.43s
+    ENTITY_REG: 939,            // 31.30s
+    AI_HUMAN: 281,              // 9.37s
+    ECOSYSTEM: 249,             // 8.30s
+    ZERO_TRUST: 321,            // 10.70s
+    DISPUTE: 293,               // 9.77s
+    DASHBOARD: 287,             // 9.57s
+    BENEFITS: 312,              // 10.40s
+    OUTRO: 172                  // 5.73s
 };
 
-// Account for 10 transitions of 30 frames each (overlap)
-export const TOTAL_DURATION = Object.values(DURATIONS).reduce((a, b) => a + b, 0) - (10 * 30);
+// No transitions = direct back-to-back sequences
+export const TOTAL_DURATION = Object.values(DURATIONS).reduce((a, b) => a + b, 0);

@@ -23,7 +23,7 @@ export const Section5_AIHuman: React.FC = () => {
     const opacity = interpolate(anim, [0, 0.5], [0, 1]);
 
     return (
-        <AbsoluteFill style={{ backgroundColor: '#050814', flexDirection: 'row' }}>
+        <AbsoluteFill style={{ backgroundColor: 'transparent', flexDirection: 'row' }}>
             {frame >= 30 && <Audio src={staticFile('audio/ai_human.wav')} />}
             <div style={{
                 flex: 1,
