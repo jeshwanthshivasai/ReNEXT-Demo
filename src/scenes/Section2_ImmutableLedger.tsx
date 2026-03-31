@@ -2,71 +2,71 @@ import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_GREEN, COLOR_DARK_BLUE } from '../Constants';
-import { Database, FileText, ShoppingCart, Key, AlertTriangle, Tag, Building } from 'lucide-react';
+import { Database, FileText, Handshake, Gavel, Coins, Map } from 'lucide-react';
 
 const ENTITIES = [
     {
         id: 1,
         title: 'Entity 1: RE Record',
         status: 'STATIC',
-        fields: 'Property Type, Unique Identifier, Address, GPS (Lat, Lon), Size (Area)',
+        fields: ['Property Type', 'Unique Identifier', 'Address', 'GPS (Lat, Lon)', 'Size (Area)'],
         icon: Database,
     },
     {
         id: 2,
         title: 'Entity 2: Ownership Record',
         status: 'DYNAMIC',
-        fields: 'Owner Name, Type, Issuance Date, Status: Active/Encumbered',
+        fields: ['Owner Name', 'Owner Type', 'Issuance Date', 'Status: Active/Encumbered'],
         icon: FileText,
     },
     {
         id: 3,
         title: 'Entity 3: Sale Transaction',
         status: 'DYNAMIC',
-        fields: 'Seller, Buyer, Agent, Timestamps, Sale Price, Reference Records, Brokerage Details, Contract Digisig, Escrow, Money flow audit',
-        icon: ShoppingCart,
+        fields: ['Seller', 'Buyer', 'Agent', 'Timestamps', 'Sale Price', 'Ref Records', 'Brokerage', 'Digisig', 'Escrow', 'Money Audit'],
+        icon: Handshake,
     },
     {
         id: 4,
         title: 'Entity 4: Rental Transaction',
         status: 'DYNAMIC',
-        fields: 'Leaser, Tenant, Agent, Timestamps, Rental Price, Reference Records, Brokerage Details, Contract Digisig, Escrow, Money flow audit',
-        icon: Key,
+        fields: ['Leaser', 'Tenant', 'Agent', 'Timestamps', 'Rental Price', 'Ref Records', 'Brokerage', 'Digisig', 'Escrow', 'Money Audit'],
+        icon: Handshake,
     },
     {
         id: 5,
         title: 'Entity 5: Dispute Record',
         status: 'DYNAMIC',
-        fields: 'Claimant Name/Type, Respondent Name/Type',
-        icon: AlertTriangle,
+        fields: ['Claimant Name', 'Claimant Type', 'Respondent Name', 'Respondent Type'],
+        icon: Gavel,
     },
     {
         id: 6,
         title: 'Entity 6: Sale Pricing Record',
         status: 'DYNAMIC',
-        fields: 'Amount, Timestamp',
-        icon: Tag,
+        fields: ['Amount', 'Timestamp'],
+        icon: Coins,
     },
     {
         id: 7,
         title: 'Entity 7: Rental Pricing Record',
         status: 'DYNAMIC',
-        fields: 'Amount, Timestamp',
-        icon: Tag,
+        fields: ['Amount', 'Timestamp'],
+        icon: Coins,
     },
     {
         id: 8,
         title: 'Entity 8: Brokerage Pricing Record',
         status: 'DYNAMIC',
-        fields: 'Amount, Timestamp',
-        icon: Tag,
+        fields: ['Amount', 'Timestamp'],
+        icon: Coins,
     },
     {
         id: 9,
         title: 'Entity 9: Project Record',
         status: 'DYNAMIC',
-        fields: 'Developer Name, Developer Type',
-        icon: Building,
+        fields: ['Developer Name', 'Developer Type'],
+        icon: Map,
     }
 ];
 
@@ -74,17 +74,16 @@ export const Section2_ImmutableLedger: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const STAGGER = 15; // 0.5 second snappiness
+    const STAGGER = 15;
     const START_OFFSET = 20;
 
     return (
         <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             <Audio src={staticFile('audio/solution.wav')} />
-            
-            {/* Header Title */}
+
             <div style={{
                 position: 'absolute',
-                top: 60,
+                top: 30, // Compact header to reclaim bottom space
                 width: '100%',
                 textAlign: 'center',
                 zIndex: 10,
@@ -98,17 +97,22 @@ export const Section2_ImmutableLedger: React.FC = () => {
                 />
             </div>
 
-            <AbsoluteFill style={{ padding: '160px 80px 40px 80px' }}>
-                
-                {/* --- Grid Layout (Top & Middle Rows) --- */}
-                <div style={{ 
-                    display: 'grid', 
-                    gridTemplateRows: 'repeat(2, 280px)', 
-                    gap: 30, // Precise grid to avoid negative spacing
-                    marginBottom: 50 
+            <AbsoluteFill style={{
+                padding: '100px 80px 80px 80px', // Uniform 80px padding (top adjusted for title)
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center', // Vertically center the entire architecture
+                gap: 20
+            }}>
+
+                {/* --- Grid Layout (Top & Middle Rows) with Dynamic Height --- */}
+                <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 20,
                 }}>
                     {/* Row 1 (2, 3, 4, 5) */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 30 }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 30, alignItems: 'start' }}>
                         {[1, 2, 3, 4].map((idIdx) => {
                             const entity = ENTITIES[idIdx];
                             const anim = spring({ frame: frame - (START_OFFSET + idIdx * STAGGER), fps, config: { damping: 15 } });
@@ -117,7 +121,7 @@ export const Section2_ImmutableLedger: React.FC = () => {
                     </div>
 
                     {/* Row 2 (6, 7, 8, 9) */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 30 }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 30, alignItems: 'start' }}>
                         {[5, 6, 7, 8].map((idIdx) => {
                             const entity = ENTITIES[idIdx];
                             const anim = spring({ frame: frame - (START_OFFSET + idIdx * STAGGER), fps, config: { damping: 15 } });
@@ -127,7 +131,7 @@ export const Section2_ImmutableLedger: React.FC = () => {
                 </div>
 
                 {/* --- Foundational Entity 1 --- */}
-                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
                     {(() => {
                         const entity = ENTITIES[0];
                         const anim = spring({ frame: frame - START_OFFSET, fps, config: { damping: 18 } });
@@ -143,41 +147,34 @@ export const Section2_ImmutableLedger: React.FC = () => {
                                 boxShadow: `0 0 60px ${COLOR_GREEN}11`,
                                 zIndex: 10
                             }}>
-                                <div style={{ 
-                                    padding: '24px 40px', 
-                                    background: 'rgba(150, 202, 56, 0.1)', 
-                                    display: 'flex', 
-                                    alignItems: 'center', 
+                                <div style={{
+                                    padding: '16px 40px',
+                                    background: 'rgba(150, 202, 56, 0.12)',
+                                    display: 'flex',
+                                    alignItems: 'center',
                                     justifyContent: 'center',
                                     gap: 30,
                                     borderBottom: '1px solid rgba(150, 202, 56, 0.4)'
                                 }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-                                        <entity.icon size={36} color={COLOR_GREEN} />
-                                        <Typography text={entity.title} fontSize={32} fontWeight={700} color="#fff" />
-                                        {/* Status box Right side of title */}
-                                        <div style={{ 
-                                            background: COLOR_GREEN, 
-                                            color: COLOR_DARK_BLUE, 
-                                            padding: '4px 14px', 
-                                            borderRadius: 4, 
-                                            fontSize: 16, 
-                                            fontWeight: 800,
-                                            marginLeft: 10
-                                        }}>
-                                            {entity.status}
-                                        </div>
+                                        <entity.icon size={28} color={COLOR_GREEN} />
+                                        <Typography text={entity.title} fontSize={28} fontWeight={700} color="#fff" />
+                                        <div style={{ background: COLOR_GREEN, color: COLOR_DARK_BLUE, padding: '3px 12px', borderRadius: 4, fontSize: 14, fontWeight: 800 }}>{entity.status}</div>
                                     </div>
                                 </div>
-                                <div style={{ padding: '30px', textAlign: 'center' }}>
-                                    <Typography text={entity.fields} fontSize={22} color="#fff" fontWeight={600} />
+                                <div style={{ padding: '16px 40px', display: 'flex', justifyContent: 'space-between', gap: 15 }}>
+                                    {entity.fields.map((f, i) => (
+                                        <div key={i} style={{ flex: 1, padding: '14px 5px', background: 'rgba(150, 202, 56, 0.05)', border: '1px solid rgba(150, 202, 56, 0.15)', borderRadius: 8, textAlign: 'center' }}>
+                                            <Typography text={f} fontSize={14} fontWeight={600} color="#fff" />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         );
                     })()}
                 </div>
 
-                {/* --- Animated Connector Points 'Flowing' Upward --- */}
+                {/* --- Animated Connector Paths --- */}
                 <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: -1 }}>
                     <defs>
                         <linearGradient id="lineGrad" x1="0%" y1="100%" x2="0%" y2="0%">
@@ -187,31 +184,17 @@ export const Section2_ImmutableLedger: React.FC = () => {
                     </defs>
                     {[1, 2, 3, 4, 5, 6, 7, 8].map((idIdx) => {
                         const anim = spring({ frame: frame - (START_OFFSET + idIdx * STAGGER), fps });
-                        
-                        // Precise layout math
                         const col = idIdx < 5 ? (idIdx - 1) : (idIdx - 5);
                         const row = idIdx < 5 ? 0 : 1;
-                        
-                        const targetX = 80 + (col * 440) + 210; 
-                        const targetY = 160 + (row * 310) + 240; 
-                        const baseX = 960; 
-                        const baseY = 800;
-
+                        const targetX = 80 + (col * (1760 / 4)) + 210;
+                        const targetY = row === 0 ? 280 : 530;
+                        const baseX = 960;
+                        const baseY = 840;
                         return (
-                            <g key={idIdx} style={{ opacity: anim }}>
-                                <path
-                                    d={`M ${baseX} ${baseY} L ${targetX} ${targetY}`}
-                                    stroke="url(#lineGrad)"
-                                    strokeWidth="3"
-                                    strokeDasharray="10,20"
-                                    strokeDashoffset={-frame * 5} // QUICK FLOW as requested
-                                    fill="none"
-                                />
-                            </g>
+                            <path key={idIdx} d={`M ${baseX} ${baseY} L ${targetX} ${targetY}`} stroke="url(#lineGrad)" strokeWidth="2" strokeDasharray="10,20" strokeDashoffset={-frame * 5} opacity={anim} fill="none" />
                         );
                     })}
                 </svg>
-
             </AbsoluteFill>
         </AbsoluteFill>
     );
@@ -221,49 +204,36 @@ const EntityCard: React.FC<{ entity: any, anim: number }> = ({ entity, anim }) =
     return (
         <div style={{
             opacity: anim,
-            position: 'relative',
-            transform: `translateY(${interpolate(anim, [0, 1], [40, 0])}px)`,
-            background: 'rgba(5, 10, 25, 0.95)',
+            transform: `translateY(${interpolate(anim, [0, 1], [30, 0])}px)`,
+            background: 'rgba(5, 10, 25, 0.96)',
             borderRadius: 16,
             border: '1px solid rgba(150, 202, 56, 0.25)',
             overflow: 'hidden',
             display: 'flex',
             flexDirection: 'column',
-            height: '100%',
-            boxShadow: '0 15px 45px rgba(0,0,0,0.4)'
+            boxShadow: '0 10px 40px rgba(0,0,0,0.4)',
+            position: 'relative'
         }}>
-            {/* Header Header background with status tag in Top-Right Corner */}
-            <div style={{ 
-                padding: '18px 20px', 
-                background: 'rgba(150, 202, 56, 0.12)', 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'space-between',
-                borderBottom: '1px solid rgba(150, 202, 56, 0.3)'
-            }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <entity.icon size={22} color={COLOR_GREEN} />
-                    <Typography text={entity.title} fontSize={17} fontWeight={700} color="#fff" />
+            <div style={{ padding: '14px 20px', background: 'rgba(150, 202, 56, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid rgba(150, 202, 56, 0.2)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <entity.icon size={20} color={COLOR_GREEN} />
+                    <Typography text={entity.title} fontSize={16} fontWeight={700} color="#fff" />
                 </div>
-                {/* Simplified Status Label Top-Right Corner */}
-                <div style={{ 
-                    background: 'rgba(150, 202, 56, 0.3)', 
-                    color: COLOR_GREEN, 
-                    padding: '2px 8px', 
-                    borderRadius: 4, 
-                    fontSize: 10, 
-                    fontWeight: 900,
-                    border: `1px solid ${COLOR_GREEN}44`
-                }}>
-                    {entity.status}
-                </div>
+                <div style={{ background: 'rgba(150, 202, 56, 0.25)', color: COLOR_GREEN, padding: '2px 8px', borderRadius: 4, fontSize: 10, fontWeight: 900 }}>{entity.status}</div>
             </div>
 
-            <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center' }}>
-                <Typography text={entity.fields} fontSize={14} color="#f0f0f0" fontWeight={400} lineHeight="1.6" />
+            <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', gap: 6 }}>
+                {entity.fields.map((f: string, i: number) => (
+                    <div key={i} style={{
+                        background: 'rgba(150, 202, 56, 0.05)', border: '1px solid rgba(150, 202, 56, 0.12)',
+                        borderRadius: 6, padding: '6px 12px', display: 'flex', alignItems: 'center'
+                    }}>
+                        <Typography text={f} fontSize={12} color="#fff" fontWeight={500} />
+                    </div>
+                ))}
             </div>
 
-            {/* Premium visual accent */}
+            {/* Trimmed bottom accent */}
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 1, background: `linear-gradient(90deg, transparent, ${COLOR_GREEN}44, transparent)` }} />
         </div>
     );
