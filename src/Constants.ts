@@ -6,8 +6,8 @@ export const FPS = 30;
 
 export const DURATIONS = {
     INTRO: 147,                  // Logo Reveal: 4.90s
-    ECOSYSTEM_HUB: 270,          // Slide 4: 9.00s (Increased for sequential reveal)
-    IMMUTABLE_LEDGER: 450,       // Slide 8: 15.00s (Increased for 1-sec sequential reveal)
+    ECOSYSTEM_HUB: 180,          // Slide 4: 6.00s (Snappier reveal)
+    IMMUTABLE_LEDGER: 210,       // Slide 8: 7.00s (Reduced for snappier transition)
     SOLUTION: 277,               // 9.23s
     USER_MANAGEMENT: 1239,       // Trimmed (Manual: 1:04:26)
     ENTITY_VIEW: 1646,           // 54.87s

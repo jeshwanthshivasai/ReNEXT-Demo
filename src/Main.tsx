@@ -45,10 +45,6 @@ export const Main: React.FC = () => {
                     <Section2_ImmutableLedger />
                 </Series.Sequence>
 
-                {/* 3. Core Presentation */}
-                <Series.Sequence durationInFrames={DURATIONS.SOLUTION}>
-                    <Section3_Solution />
-                </Series.Sequence>
 
                 {/* --- Functional Walkthrough Trio --- */}
 

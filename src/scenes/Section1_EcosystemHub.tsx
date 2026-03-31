@@ -46,8 +46,8 @@ export const Section1_EcosystemHub: React.FC = () => {
     const box3Anim = spring({ frame: frame - 20, fps, config: { damping: 15 } }); 
 
     // Global sequential timing (One by one across the entire ecosystem)
-    const STAGGER = 10; 
-    const START_FRAME = 30;
+    const STAGGER = 6; 
+    const START_FRAME = 20;
 
     const VERTICAL_OFFSET = 60;
 
@@ -71,7 +71,7 @@ export const Section1_EcosystemHub: React.FC = () => {
             {/* Header Title */}
             <div style={{
                 position: 'absolute',
-                top: 70, // User adjusted to 70 manually
+                top: 70, 
                 width: '100%',
                 textAlign: 'center',
                 zIndex: 10,
@@ -160,8 +160,7 @@ export const Section1_EcosystemHub: React.FC = () => {
                                 }}>
                                     <div style={{ fontSize: 10, background: COLOR_GREEN, color: COLOR_DARK_BLUE, padding: '4px 6px', borderRadius: 4, fontWeight: 700 }}>{role.type}</div>
                                     <div style={{ flex: 1 }}>
-                                        <Typography text={role.title} fontSize={14} color="#fff" />
-                                        <Typography text={`LVL: ${role.level}`} fontSize={11} color="#8892b0" />
+                                        <Typography text={role.title} fontSize={18} fontWeight={700} color="#fff" />
                                     </div>
                                 </div>
                             );
@@ -196,7 +195,7 @@ export const Section1_EcosystemHub: React.FC = () => {
                                         border: '1px solid rgba(255,255,255,0.03)'
                                     }}>
                                         <div style={{ fontSize: 11, background: COLOR_GREEN, color: COLOR_DARK_BLUE, padding: '4px 6px', borderRadius: 4, fontWeight: 700 }}>{role.type}</div>
-                                        <Typography text={role.title} fontSize={14} color="#fff" />
+                                        <Typography text={role.title} fontSize={18} fontWeight={700} color="#fff" />
                                     </div>
                                 );
                             })}
@@ -227,7 +226,7 @@ export const Section1_EcosystemHub: React.FC = () => {
                                         border: '1px solid rgba(255,255,255,0.03)'
                                     }}>
                                         <div style={{ fontSize: 10, background: COLOR_GREEN, color: COLOR_DARK_BLUE, padding: '3px 5px', borderRadius: 4, fontWeight: 700 }}>{role.type}</div>
-                                        <Typography text={role.title} fontSize={12} color="#fff" />
+                                        <Typography text={role.title} fontSize={15} fontWeight={700} color="#fff" />
                                     </div>
                                 );
                             })}

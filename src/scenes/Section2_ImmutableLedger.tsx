@@ -83,8 +83,8 @@ export const Section2_ImmutableLedger: React.FC = () => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const STAGGER = 30; // 1 second
-    const START_OFFSET = 30;
+    const STAGGER = 15; // 0.5 second
+    const START_OFFSET = 20;
 
     return (
         <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
