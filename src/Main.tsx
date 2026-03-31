@@ -51,12 +51,12 @@ export const Main: React.FC = () => {
                     <Section4b_EntityView />
                 </Series.Sequence>
 
-                <Series.Sequence durationInFrames={DURATIONS.FINANCIAL_INTEL}>
-                    <Section4d_FinancialIntel />
-                </Series.Sequence>
-
                 <Series.Sequence durationInFrames={DURATIONS.ENTITY_REG}>
                     <Section4c_EntityRegistration />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.FINANCIAL_INTEL}>
+                    <Section4d_FinancialIntel />
                 </Series.Sequence>
 
                 {/* ------------------------------------ */}
