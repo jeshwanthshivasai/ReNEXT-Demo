@@ -1,0 +1,31 @@
+{
+  "name": "matnext-demo",
+  "version": "1.0.0",
+  "description": "MatNEXT B2B SaaS Product Demo Video",
+  "main": "index.js",
+  "scripts": {
+    "start": "remotion studio src/index.ts",
+    "build": "remotion bundle src/index.ts out/bundle.js",
+    "render": "remotion render src/index.ts ReNEXT-Explainer out/video.mp4",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@remotion/cli": "4.0.441",
+    "@remotion/google-fonts": "4.0.441",
+    "@remotion/shapes": "4.0.441",
+    "@remotion/transitions": "4.0.441",
+    "@types/node": "22.5.0",
+    "@types/react": "18.3.28",
+    "@types/react-dom": "18.3.7",
+    "autoprefixer": "10.4.27",
+    "lucide-react": "0.479.0",
+    "postcss": "8.5.8",
+    "remotion": "4.0.441",
+    "tailwindcss": "4.2.2",
+    "typescript": "5.7.3"
+  }
+}
