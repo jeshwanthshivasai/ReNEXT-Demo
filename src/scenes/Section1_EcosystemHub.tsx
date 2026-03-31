@@ -44,6 +44,9 @@ export const Section1_EcosystemHub: React.FC = () => {
     const box2Anim = spring({ frame: frame - 25, fps, config: { damping: 15 } }); // Citizen Box
     const box3Anim = spring({ frame: frame - 35, fps, config: { damping: 15 } }); // Commercial Box
 
+    // Vertical offset to move "the entire thing" down
+    const VERTICAL_OFFSET = 60;
+
     return (
         <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
             <Audio src={staticFile('audio/intro.wav')} />
@@ -57,14 +60,14 @@ export const Section1_EcosystemHub: React.FC = () => {
                 background: `radial-gradient(circle, ${COLOR_GREEN}03 0%, transparent 75%)`,
                 left: '50%',
                 top: '50%',
-                transform: 'translate(-50%, -50%)',
+                transform: `translate(-50%, calc(-50% + ${VERTICAL_OFFSET}px))`,
                 filter: 'blur(200px)',
             }} />
 
-            {/* Header Title */}
+            {/* Header Title - also moved down slightly */}
             <div style={{
                 position: 'absolute',
-                top: 40,
+                top: 70,
                 width: '100%',
                 textAlign: 'center',
                 zIndex: 10,
@@ -78,7 +81,11 @@ export const Section1_EcosystemHub: React.FC = () => {
                 />
             </div>
 
-            <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <AbsoluteFill style={{ 
+                justifyContent: 'center', 
+                alignItems: 'center',
+                transform: `translateY(${VERTICAL_OFFSET}px)`
+            }}>
                 {/* Central Hub */}
                 <div style={{
                     transform: `scale(${interpolate(hubAnim, [0, 1], [0.6, 1])})`,
@@ -119,7 +126,6 @@ export const Section1_EcosystemHub: React.FC = () => {
                     flexDirection: 'column',
                     overflow: 'hidden'
                 }}>
-                    {/* Glassmorphism Header Background Style - matching 'previous version' (Transparent/Subtle Green) */}
                     <div style={{ 
                         padding: '24px 30px', 
                         background: 'rgba(150, 202, 56, 0.05)', 
@@ -219,6 +225,7 @@ export const Section1_EcosystemHub: React.FC = () => {
 
                 </div>
 
+                {/* Simplified Connecting Lines - Fixed to remain relative even with offset */}
                 <svg width="100%" height="100%" viewBox="0 0 1920 1080" style={{ position: 'absolute', pointerEvents: 'none' }}>
                     <line x1="600" y1="540" x2="860" y2="540" stroke={COLOR_GREEN} strokeWidth="1" strokeDasharray="5,5" opacity={hubAnim * 0.3} />
                     <line x1="1060" y1="460" x2="1300" y2="350" stroke={COLOR_GREEN} strokeWidth="1" strokeDasharray="5,5" opacity={hubAnim * 0.3} />
