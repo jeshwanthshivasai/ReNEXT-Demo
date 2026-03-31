@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_GREEN, COLOR_DARK_BLUE } from '../Constants';
 import { Database, FileText, Handshake, Gavel, Coins, Map } from 'lucide-react';
@@ -79,7 +79,7 @@ export const Section2_ImmutableLedger: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
-            <Audio src={staticFile('audio/solution.wav')} />
+            
 
             <div style={{
                 position: 'absolute',

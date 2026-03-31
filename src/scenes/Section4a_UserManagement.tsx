@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, useCurrentFrame, staticFile, Audio } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, staticFile } from 'remotion';
 import { ScreenWalkthroughLayout } from '../components/ScreenWalkthroughLayout';
 
 export const Section4a_UserManagement: React.FC = () => {
@@ -7,7 +7,6 @@ export const Section4a_UserManagement: React.FC = () => {
 
     return (
         <AbsoluteFill>
-            {frame >= 30 && <Audio src={staticFile('audio/lifecycle.wav')} />}
             
             <ScreenWalkthroughLayout 
                 title="END-TO-END PROPERTY LIFECYCLE"

@@ -24,9 +24,9 @@ export const ScreenWalkthroughLayout: React.FC<ScreenWalkthroughLayoutProps> = (
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
 
-    const entrance = interpolate(frame, [0, 30], [0, 1], { extrapolateRight: 'clamp' });
-    const scale = interpolate(entrance, [0, 1], [0.95, 1]);
-    const blur = interpolate(entrance, [0, 1], [10, 0]);
+    const entrance = 1; // Animation removed per request
+    const scale = 1;
+    const blur = 0;
 
     // Standardized window sizing
     const windowWidth = 1350; 

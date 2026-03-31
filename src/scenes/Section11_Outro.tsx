@@ -1,8 +1,7 @@
 import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
-import { ShieldCheck } from 'lucide-react';
 
 export const Section11_Outro: React.FC = () => {
     const frame = useCurrentFrame();
@@ -14,12 +13,11 @@ export const Section11_Outro: React.FC = () => {
         config: { damping: 12, stiffness: 100 },
     });
 
-    const scale = interpolate(anim, [0, 1], [1.2, 1]);
+    const scale = interpolate(anim, [0, 1], [1.1, 1]); // Slight Zoom in
     const opacity = interpolate(anim, [0, 0.5], [0, 1]);
 
     return (
         <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
-            {frame >= 30 && <Audio src={staticFile('audio/outro.wav')} />}
             
             <div style={{
                 position: 'absolute',
@@ -33,7 +31,6 @@ export const Section11_Outro: React.FC = () => {
                 filter: 'blur(120px)',
             }} />
 
-
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <div style={{
                     display: 'flex',
@@ -42,53 +39,49 @@ export const Section11_Outro: React.FC = () => {
                     transform: `scale(${scale})`,
                     opacity,
                 }}>
-                    <div style={{
-                        backgroundColor: COLOR_DARK_BLUE,
-                        padding: 30,
-                        borderRadius: 24,
-                        border: `3px solid ${COLOR_GREEN}`,
-                        boxShadow: `0 0 40px ${COLOR_GREEN}44`,
-                        marginBottom: 40,
-                    }}>
-                        <ShieldCheck size={80} color={COLOR_GREEN} />
-                    </div>
-
+                    {/* Typographic Hero mirroring Intro */}
                     <Typography
                         text="RENEXT"
-                        fontSize={120}
+                        fontSize={160}
                         fontWeight={600}
                         color={COLOR_GREEN}
-                        letterSpacing={-4}
+                        letterSpacing={-8}
                     />
 
                     <div style={{
-                        marginTop: 20,
-                        backgroundColor: `${COLOR_GREEN}11`,
-                        padding: '10px 30px',
-                        borderRadius: 30,
-                        border: `1px solid ${COLOR_GREEN}33`,
+                        marginTop: 10,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 20,
                     }}>
+                        <div style={{
+                            width: interpolate(anim, [0, 1], [0, 180]),
+                            height: 2,
+                            background: `linear-gradient(90deg, transparent, ${COLOR_GREEN})`,
+                        }} />
+
                         <Typography
-                            text="The Digital Nervous System for Real Estate"
-                            fontSize={24}
+                            text="Digital Nervous System"
+                            fontSize={32}
                             fontWeight={400}
                             color="#fff"
-                            letterSpacing={1}
+                        />
+
+                        <div style={{
+                            width: interpolate(anim, [0, 1], [0, 180]),
+                            height: 2,
+                            background: `linear-gradient(90deg, ${COLOR_GREEN}, transparent)`,
+                        }} />
+                    </div>
+
+                    <div style={{ marginTop: 40, opacity: interpolate(frame, [40, 70], [0, 1], { extrapolateLeft: 'clamp' }) }}>
+                        <Typography
+                            text="Re-imagining Governance. Re-defining Trust."
+                            fontSize={24}
+                            color="#8892b0"
+                            letterSpacing={2}
                         />
                     </div>
-                </div>
-
-                <div style={{
-                    position: 'absolute',
-                    bottom: 100,
-                    opacity: interpolate(frame, [60, 90], [0, 1]),
-                }}>
-                    <Typography
-                        text="Re-imagining Governance. Re-defining Trust."
-                        fontSize={20}
-                        color="#8892b0"
-                        letterSpacing={4}
-                    />
                 </div>
             </AbsoluteFill>
         </AbsoluteFill>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, staticFile } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_GREEN, COLOR_DARK_BLUE } from '../Constants';
 import { Network, Landmark, User, Building2 } from 'lucide-react';
@@ -53,7 +53,6 @@ export const Section1_EcosystemHub: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
-            <Audio src={staticFile('audio/intro.wav')} />
             
             {/* Background Glow */}
             <div style={{

@@ -6,15 +6,10 @@ import { Section1_Intro } from './scenes/Section1_Intro';
 import { Section1_EcosystemHub } from './scenes/Section1_EcosystemHub';
 import { Section2_ImmutableLedger } from './scenes/Section2_ImmutableLedger';
 import { Section2b_ProfileOverview } from './scenes/Section2b_ProfileOverview';
-import { Section3_Solution } from './scenes/Section3_Solution';
 import { Section4a_UserManagement } from './scenes/Section4a_UserManagement';
 import { Section4b_EntityView } from './scenes/Section4b_EntityView';
-import { Section4d_FinancialIntel } from './scenes/Section4d_FinancialIntel';
 import { Section4c_EntityRegistration } from './scenes/Section4c_EntityRegistration';
-import { Section5_AIHuman } from './scenes/Section5_AIHuman';
-import { Section6_Ecosystem } from './scenes/Section6_Ecosystem';
-import { Section7_ZeroTrust } from './scenes/Section7_ZeroTrust';
-import { Section8_Dispute } from './scenes/Section8_Dispute';
+import { Section4d_FinancialIntel } from './scenes/Section4d_FinancialIntel';
 import { Section9_Dashboard } from './scenes/Section9_Dashboard';
 import { Section10_Benefits } from './scenes/Section10_Benefits';
 import { Section11_Outro } from './scenes/Section11_Outro';
@@ -50,6 +45,10 @@ export const Main: React.FC = () => {
                     <Section2b_ProfileOverview />
                 </Series.Sequence>
 
+                <Series.Sequence durationInFrames={DURATIONS.DASHBOARD}>
+                    <Section9_Dashboard />
+                </Series.Sequence>
+
 
                 {/* --- Functional Walkthrough Trio --- */}
 
@@ -70,26 +69,6 @@ export const Main: React.FC = () => {
                 </Series.Sequence>
 
                 {/* ------------------------------------ */}
-
-                <Series.Sequence durationInFrames={DURATIONS.AI_HUMAN}>
-                    <Section5_AIHuman />
-                </Series.Sequence>
-
-                <Series.Sequence durationInFrames={DURATIONS.ECOSYSTEM}>
-                    <Section6_Ecosystem />
-                </Series.Sequence>
-
-                <Series.Sequence durationInFrames={DURATIONS.ZERO_TRUST}>
-                    <Section7_ZeroTrust />
-                </Series.Sequence>
-
-                <Series.Sequence durationInFrames={DURATIONS.DISPUTE}>
-                    <Section8_Dispute />
-                </Series.Sequence>
-
-                <Series.Sequence durationInFrames={DURATIONS.DASHBOARD}>
-                    <Section9_Dashboard />
-                </Series.Sequence>
 
                 <Series.Sequence durationInFrames={DURATIONS.BENEFITS}>
                     <Section10_Benefits />

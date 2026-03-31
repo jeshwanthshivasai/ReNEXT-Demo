@@ -8,7 +8,7 @@ export const DURATIONS = {
     INTRO: 147,                  // Logo Reveal: 4.90s
     ECOSYSTEM_HUB: 180,          // Slide 4: 6.00s (Snappier reveal)
     IMMUTABLE_LEDGER: 210,       // Slide 8: 7.00s (Reduced for snappier transition)
-    PROFILE_OVERVIEW: 300,       // NEW: 10.00s
+    PROFILE_OVERVIEW: 330,       // Full Video: 11.00s
     SOLUTION: 277,               // 9.23s
     USER_MANAGEMENT: 1239,       // Trimmed (Manual: 1:04:26)
     ENTITY_VIEW: 1646,           // 54.87s

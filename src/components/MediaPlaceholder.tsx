@@ -94,7 +94,7 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
             }}>
                 {src ? (
                     type === 'video' ? (
-                        <Video src={src} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        <Video src={src} muted style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                     ) : (
                         <Img src={src} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                     )

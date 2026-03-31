@@ -1,4 +1,4 @@
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Audio, staticFile } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 import { Typography } from '../components/Typography';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
 import { ShieldCheck, Zap, Users, Globe } from 'lucide-react';
@@ -16,7 +16,6 @@ export const Section10_Benefits: React.FC = () => {
 
     return (
         <AbsoluteFill style={{ backgroundColor: 'transparent' }}>
-            {frame >= 30 && <Audio src={staticFile('audio/benefits.wav')} />}
             <AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center', padding: 80 }}>
                 <div style={{ marginBottom: 80, textAlign: 'center' }}>
                     <Typography

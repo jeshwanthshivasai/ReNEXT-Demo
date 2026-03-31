@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, useCurrentFrame, staticFile, Audio } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, staticFile } from 'remotion';
 import { ScreenWalkthroughLayout } from '../components/ScreenWalkthroughLayout';
 
 export const Section9_Dashboard: React.FC = () => {
@@ -7,7 +7,6 @@ export const Section9_Dashboard: React.FC = () => {
 
     return (
         <AbsoluteFill>
-            {frame >= 30 && <Audio src={staticFile('audio/dashboard.wav')} />}
             
             <ScreenWalkthroughLayout 
                 title="EXECUTIVE DASHBOARD & INSIGHTS"
