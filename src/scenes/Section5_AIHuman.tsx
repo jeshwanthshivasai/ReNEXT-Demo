@@ -15,7 +15,7 @@ export const Section5_AIHuman: React.FC = () => {
     });
 
     const mergeAnim = spring({
-        frame: frame - 450,
+        frame: frame - 150,
         fps,
         config: { damping: 15, stiffness: 100 },
     });

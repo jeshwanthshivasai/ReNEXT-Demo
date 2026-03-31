@@ -15,7 +15,7 @@ export const Section6_Ecosystem: React.FC = () => {
     });
 
     const mergeAnim = spring({
-        frame: frame - 300,
+        frame: frame - 180,
         fps,
         config: { damping: 15, stiffness: 100 },
     });

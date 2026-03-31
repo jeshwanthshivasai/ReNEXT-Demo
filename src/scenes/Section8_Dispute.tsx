@@ -15,10 +15,10 @@ export const Section8_Dispute: React.FC = () => {
     });
 
     const levels = [
-        { id: 1, name: "VILLAGE", delay: 60 },
-        { id: 2, name: "DIVISION", delay: 150 },
-        { id: 3, name: "DISTRICT", delay: 240 },
-        { id: 4, name: "STATE", delay: 330 },
+        { id: 1, name: "VILLAGE", delay: 30 },
+        { id: 2, name: "DIVISION", delay: 90 },
+        { id: 3, name: "DISTRICT", delay: 150 },
+        { id: 4, name: "STATE", delay: 210 },
     ];
 
     return (
@@ -105,7 +105,7 @@ export const Section8_Dispute: React.FC = () => {
                     transform: 'translateY(-50%)',
                     width: 300,
                     textAlign: 'right',
-                    opacity: interpolate(frame, [400, 430], [0, 1]),
+                    opacity: interpolate(frame, [250, 280], [0, 1]),
                 }}>
                     <Gavel size={120} color={COLOR_GREEN} style={{ marginLeft: 'auto' }} />
                     <Typography

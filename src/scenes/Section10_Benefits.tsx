@@ -16,10 +16,10 @@ export const Section10_Benefits: React.FC = () => {
 
     const benefits = [
         { id: 1, text: "Unwavering Trust", icon: ShieldCheck, delay: 0 },
-        { id: 2, text: "Accelerated Speed", icon: Zap, delay: 120 },
-        { id: 3, text: "End-to-End Transparency", icon: Search, delay: 240 },
-        { id: 4, text: "Automated Compliance", icon: Gavel, delay: 360 },
-        { id: 5, text: "Data-Driven Decisions", icon: BarChart3, delay: 480 },
+        { id: 2, text: "Accelerated Speed", icon: Zap, delay: 40 },
+        { id: 3, text: "End-to-End Transparency", icon: Search, delay: 80 },
+        { id: 4, text: "Automated Compliance", icon: Gavel, delay: 120 },
+        { id: 5, text: "Data-Driven Decisions", icon: BarChart3, delay: 160 },
     ];
 
     return (

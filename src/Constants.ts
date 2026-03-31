@@ -5,17 +5,18 @@ export const COLOR_WHITE = '#ffffff';
 export const FPS = 30;
 
 export const DURATIONS = {
-    INTRO: 15 * FPS,            // 0:00 - 0:15
-    PROBLEM: 25 * FPS,          // 0:15 - 0:40
-    SOLUTION: 20 * FPS,         // 0:40 - 1:00
-    LIFECYCLE: 40 * FPS,        // 1:00 - 1:40
-    AI_HUMAN: 20 * FPS,         // 1:40 - 2:00
-    ECOSYSTEM: 20 * FPS,        // 2:00 - 2:20
-    ZERO_TRUST: 25 * FPS,       // 2:20 - 2:45
-    DISPUTE: 20 * FPS,          // 2:45 - 3:05
-    DASHBOARD: 20 * FPS,        // 3:05 - 3:25
-    BENEFITS: 30 * FPS,         // 3:25 - 3:55
-    OUTRO: 15 * FPS             // 3:55 - 4:10
+    INTRO: 10 * FPS,            // 0:00 - 0:10
+    PROBLEM: 20 * FPS,          // 0:10 - 0:30
+    SOLUTION: 15 * FPS,         // 0:30 - 0:45
+    LIFECYCLE: 30 * FPS,        // 0:45 - 1:15
+    AI_HUMAN: 15 * FPS,         // 1:15 - 1:30
+    ECOSYSTEM: 15 * FPS,        // 1:30 - 1:45
+    ZERO_TRUST: 20 * FPS,       // 1:45 - 2:05
+    DISPUTE: 15 * FPS,          // 2:05 - 2:20
+    DASHBOARD: 20 * FPS,        // 2:20 - 2:40
+    BENEFITS: 25 * FPS,         // 2:40 - 3:05
+    OUTRO: 15 * FPS             // 3:05 - 3:20
 };
 
+// Account for 10 transitions of 30 frames each (overlap)
 export const TOTAL_DURATION = Object.values(DURATIONS).reduce((a, b) => a + b, 0) - (10 * 30);
