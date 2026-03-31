@@ -3,7 +3,8 @@ import { Series, AbsoluteFill } from 'remotion';
 
 // All Scenes
 import { Section1_Intro } from './scenes/Section1_Intro';
-import { Section2_Problem } from './scenes/Section2_Problem';
+import { Section1_EcosystemHub } from './scenes/Section1_EcosystemHub';
+import { Section2_ImmutableLedger } from './scenes/Section2_ImmutableLedger';
 import { Section3_Solution } from './scenes/Section3_Solution';
 import { Section4a_UserManagement } from './scenes/Section4a_UserManagement';
 import { Section4b_EntityView } from './scenes/Section4b_EntityView';
@@ -19,6 +20,7 @@ import { Section11_Outro } from './scenes/Section11_Outro';
 
 import { StaticGrid } from './components/StaticGrid';
 import { DURATIONS } from './Constants';
+
 export const Main: React.FC = () => {
     return (
         <AbsoluteFill style={{ 
@@ -29,14 +31,21 @@ export const Main: React.FC = () => {
             
             {/* Standard Series for back-to-back playback (No Transitions) */}
             <Series>
+                {/* 1. Brand Intro */}
                 <Series.Sequence durationInFrames={DURATIONS.INTRO}>
                     <Section1_Intro />
                 </Series.Sequence>
 
-                <Series.Sequence durationInFrames={DURATIONS.PROBLEM}>
-                    <Section2_Problem />
+                {/* 2. Technical Foundations (Slides 4 & 8) */}
+                <Series.Sequence durationInFrames={DURATIONS.ECOSYSTEM_HUB}>
+                    <Section1_EcosystemHub />
                 </Series.Sequence>
 
+                <Series.Sequence durationInFrames={DURATIONS.IMMUTABLE_LEDGER}>
+                    <Section2_ImmutableLedger />
+                </Series.Sequence>
+
+                {/* 3. Core Presentation */}
                 <Series.Sequence durationInFrames={DURATIONS.SOLUTION}>
                     <Section3_Solution />
                 </Series.Sequence>
