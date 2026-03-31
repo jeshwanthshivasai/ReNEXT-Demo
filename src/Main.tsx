@@ -9,6 +9,8 @@ import { Section2b_ProfileOverview } from './scenes/Section2b_ProfileOverview';
 import { Section4a_UserManagement } from './scenes/Section4a_UserManagement';
 import { Section4b_EntityView } from './scenes/Section4b_EntityView';
 import { Section4c_EntityRegistration } from './scenes/Section4c_EntityRegistration';
+import { Section4h_SaleTransaction1 } from './scenes/Section4h_SaleTransaction1';
+import { Section4i_SaleTransaction2 } from './scenes/Section4i_SaleTransaction2';
 import { Section4e_DevelopmentPermit } from './scenes/Section4e_DevelopmentPermit';
 import { Section4d_FinancialIntel } from './scenes/Section4d_FinancialIntel';
 import { Section4f_AnalysisHub } from './scenes/Section4f_AnalysisHub';
@@ -65,6 +67,14 @@ export const Main: React.FC = () => {
 
                 <Series.Sequence durationInFrames={DURATIONS.ENTITY_REG}>
                     <Section4c_EntityRegistration />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.SALE_TRANS_1}>
+                    <Section4h_SaleTransaction1 />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.SALE_TRANS_2}>
+                    <Section4i_SaleTransaction2 />
                 </Series.Sequence>
 
                 <Series.Sequence durationInFrames={DURATIONS.DEV_PERMIT}>
