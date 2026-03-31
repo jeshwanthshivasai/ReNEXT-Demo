@@ -5,6 +5,7 @@ import { Series, AbsoluteFill } from 'remotion';
 import { Section1_Intro } from './scenes/Section1_Intro';
 import { Section1_EcosystemHub } from './scenes/Section1_EcosystemHub';
 import { Section2_ImmutableLedger } from './scenes/Section2_ImmutableLedger';
+import { Section2b_ProfileOverview } from './scenes/Section2b_ProfileOverview';
 import { Section3_Solution } from './scenes/Section3_Solution';
 import { Section4a_UserManagement } from './scenes/Section4a_UserManagement';
 import { Section4b_EntityView } from './scenes/Section4b_EntityView';
@@ -43,6 +44,10 @@ export const Main: React.FC = () => {
 
                 <Series.Sequence durationInFrames={DURATIONS.IMMUTABLE_LEDGER}>
                     <Section2_ImmutableLedger />
+                </Series.Sequence>
+
+                <Series.Sequence durationInFrames={DURATIONS.PROFILE_OVERVIEW}>
+                    <Section2b_ProfileOverview />
                 </Series.Sequence>
 
 

@@ -35,14 +35,18 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
             height,
             backgroundColor: `${COLOR_DARK_BLUE}ee`,
             borderRadius,
-            border: `3px solid ${COLOR_GREEN}44`,
+            border: `1px solid ${COLOR_GREEN}55`, // Thinner, more precise glass border
             display: 'flex',
             flexDirection: 'column',
             overflow: 'hidden',
             position: 'relative',
             opacity,
             transform: `scale(${scale})`,
-            boxShadow: `0 20px 50px rgba(0,0,0,0.5), 0 0 30px ${COLOR_GREEN}22`,
+            boxShadow: `
+                0 30px 100px rgba(0,0,0,0.8), 
+                0 0 40px ${COLOR_GREEN}15,
+                inset 0 0 20px rgba(255,255,255,0.05)
+            `, // Deep 3D Shadow + Internal Glow
         }}>
             {/* Premium Browser Header Mockup */}
             <div style={{
