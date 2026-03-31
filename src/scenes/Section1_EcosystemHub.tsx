@@ -40,11 +40,15 @@ export const Section1_EcosystemHub: React.FC = () => {
         config: { damping: 12, stiffness: 100 },
     });
 
-    const box1Anim = spring({ frame: frame - 15, fps, config: { damping: 15 } }); // Admin Box
-    const box2Anim = spring({ frame: frame - 25, fps, config: { damping: 15 } }); // Citizen Box
-    const box3Anim = spring({ frame: frame - 35, fps, config: { damping: 15 } }); // Commercial Box
+    // Box header reveals
+    const box1Anim = spring({ frame: frame - 10, fps, config: { damping: 15 } }); 
+    const box2Anim = spring({ frame: frame - 15, fps, config: { damping: 15 } }); 
+    const box3Anim = spring({ frame: frame - 20, fps, config: { damping: 15 } }); 
 
-    // Vertical offset to move "the entire thing" down
+    // Global sequential timing (One by one across the entire ecosystem)
+    const STAGGER = 10; 
+    const START_FRAME = 30;
+
     const VERTICAL_OFFSET = 60;
 
     return (
@@ -64,10 +68,10 @@ export const Section1_EcosystemHub: React.FC = () => {
                 filter: 'blur(200px)',
             }} />
 
-            {/* Header Title - also moved down slightly */}
+            {/* Header Title */}
             <div style={{
                 position: 'absolute',
-                top: 70,
+                top: 70, // User adjusted to 70 manually
                 width: '100%',
                 textAlign: 'center',
                 zIndex: 10,
@@ -140,7 +144,12 @@ export const Section1_EcosystemHub: React.FC = () => {
                     
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10, padding: 24, flex: 1, justifyContent: 'center' }}>
                         {ADMIN_ROLES.map((role, i) => {
-                            const roleAnim = spring({ frame: frame - (20 + i * 4), fps });
+                            const globalIndex = i; 
+                            const roleAnim = spring({
+                                frame: frame - (START_FRAME + globalIndex * STAGGER), 
+                                fps,
+                                config: { damping: 15 }
+                            });
                             return (
                                 <div key={i} style={{
                                     height: 70, opacity: roleAnim,
@@ -177,7 +186,8 @@ export const Section1_EcosystemHub: React.FC = () => {
                         </div>
                         <div style={{ padding: '24px', display: 'flex', gap: 12 }}>
                             {CITIZEN_ROLES.map((role, i) => {
-                                const roleAnim = spring({ frame: frame - (30 + i * 4), fps });
+                                const globalIndex = ADMIN_ROLES.length + i;
+                                const roleAnim = spring({ frame: frame - (START_FRAME + globalIndex * STAGGER), fps });
                                 return (
                                     <div key={i} style={{
                                         flex: 1, height: 60, opacity: roleAnim,
@@ -207,7 +217,8 @@ export const Section1_EcosystemHub: React.FC = () => {
                         </div>
                         <div style={{ padding: '24px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                             {COMMERCIAL_ROLES.map((role, i) => {
-                                const roleAnim = spring({ frame: frame - (45 + i * 4), fps });
+                                const globalIndex = ADMIN_ROLES.length + CITIZEN_ROLES.length + i;
+                                const roleAnim = spring({ frame: frame - (START_FRAME + globalIndex * STAGGER), fps });
                                 return (
                                     <div key={i} style={{
                                         height: 55, opacity: roleAnim,
@@ -225,7 +236,6 @@ export const Section1_EcosystemHub: React.FC = () => {
 
                 </div>
 
-                {/* Simplified Connecting Lines - Fixed to remain relative even with offset */}
                 <svg width="100%" height="100%" viewBox="0 0 1920 1080" style={{ position: 'absolute', pointerEvents: 'none' }}>
                     <line x1="600" y1="540" x2="860" y2="540" stroke={COLOR_GREEN} strokeWidth="1" strokeDasharray="5,5" opacity={hubAnim * 0.3} />
                     <line x1="1060" y1="460" x2="1300" y2="350" stroke={COLOR_GREEN} strokeWidth="1" strokeDasharray="5,5" opacity={hubAnim * 0.3} />
