@@ -45,7 +45,7 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
     }
 ];
 
-const SECTION_START_FRAME = 9640; // Calculated start for Section4h
+const SECTION_START_FRAME = 9580; // Adjusted for 60-frame trim in preceding section
 // -----------------------
 
 export const Section4h_SaleTransaction1: React.FC = () => {

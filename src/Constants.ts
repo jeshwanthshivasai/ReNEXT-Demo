@@ -12,7 +12,7 @@ export const DURATIONS = {
     DASHBOARD: 1196,             // Exact Video: 39.87s (Verified)
     USER_MANAGEMENT: 1239,       // Trimmed (Manual: 1:04:26)
     ENTITY_VIEW: 1646,           // 54.87s
-    ENTITY_REG: 4692,            // Exact Video: 156.40s (Verified)
+    ENTITY_REG: 4632,            // Trimmed 60 frames (4632-4691 removed)
     SALE_TRANS_1: 3458,          // Exact Video: 115.24s (Verified)
     SALE_TRANS_2: 7976,          // Exact MP4: 265.85s (Verified)
     RENTAL_TRANS: 1365,          // Exact Video: 45.50s (Verified)
