@@ -87,6 +87,28 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         radius: 15,
         color: '#96CC39',
     },
+    {
+        name: 'Workflow - Approval Status',
+        absStart: 11909,
+        absEnd: 11965,
+        x: 1564,          // Using your previous preferred 'workflow' X
+        y: 414,           // Using your previous preferred 'workflow' Y
+        w: 140,           // Wide highlight for the workflow banner
+        h: 60,
+        radius: 15,
+        color: '#96CC39',
+    },
+        {
+        name: 'Workflow - Approval Status',
+        absStart: 12111,
+        absEnd: 12795,
+        x: 1090,          // Using your previous preferred 'workflow' X
+        y: 925,           // Using your previous preferred 'workflow' Y
+        w: 260,           // Wide highlight for the workflow banner
+        h: 60,
+        radius: 15,
+        color: '#96CC39',
+    },
 ];
 
 const SECTION_START_FRAME = 9580; // Adjusted for 60-frame trim in preceding section
