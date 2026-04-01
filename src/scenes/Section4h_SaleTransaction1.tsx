@@ -28,7 +28,7 @@ export const Section4h_SaleTransaction1: React.FC = () => {
     const relEnd = RING_CONFIG.absEndFrame - SECTION_START_FRAME;
 
     const showHighlight = frame >= relStart && frame <= relEnd;
-    
+
     const highlightY = interpolate(
         frame,
         [relStart, relEnd],
@@ -44,14 +44,14 @@ export const Section4h_SaleTransaction1: React.FC = () => {
 
     return (
         <AbsoluteFill>
-            <ScreenWalkthroughLayout 
+            <ScreenWalkthroughLayout
                 title="SALE TRANSACTION WORKFLOW - PART 1"
                 subtitle="Primary Sales Initiation & Contractual Framework"
-                videoSrc={staticFile('screens/Sale Transaction 1.mov')}
+                videoSrc={staticFile('screens/Sale Transaction 1.mp4')} // TEMPORARY BYPASS: File 'Sale Transaction 1.mov' is missing from public/screens/
                 label="SALE TRANSACTION"
                 badgeText="SMART CONTRACTS"
             />
-            
+
             {showHighlight && (
                 <div style={{
                     position: 'absolute',
