@@ -30,6 +30,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 60,            // Your preferred height
         radius: 20,
         color: '#96CC39',
+    },
+    {
+        name: 'Main Content - Data Field',
+        absStart: 7510,
+        absEnd: 7553,
+        x: 1083,           // Centered
+        y: 922,           // Centered
+        w: 260,           // Highlight box width
+        h: 65,           // Highlight box height
+        radius: 20,
+        color: '#96CC39',
     }
 ];
 
