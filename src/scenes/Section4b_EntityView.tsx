@@ -1,3 +1,4 @@
+import React from 'react';
 import { ScreenWalkthroughLayout } from '../components/ScreenWalkthroughLayout';
 import { AbsoluteFill, interpolate, useCurrentFrame, staticFile } from 'remotion';
 
