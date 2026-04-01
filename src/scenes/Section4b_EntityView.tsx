@@ -32,6 +32,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         color: '#96CC39',
     },
     {
+        name: 'Sidepane - Re-registration',
+        absStart: 3962,
+        absEnd: 4009,
+        x: 434,           // Consistent sidebar X
+        y: 621,           // Positioned below Entities
+        w: 240,           // Sidebar width
+        h: 60,            // Sidebar height
+        radius: 12,
+        color: '#96CC39',
+    },
+    {
         name: 'Main Content - Unit Detail',
         absStart: 4022,
         absEnd: 4087,
