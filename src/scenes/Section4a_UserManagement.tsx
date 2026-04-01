@@ -2,40 +2,72 @@ import { ScreenWalkthroughLayout } from '../components/ScreenWalkthroughLayout';
 import { AbsoluteFill, interpolate, useCurrentFrame, staticFile } from 'remotion';
 
 // --- MANUAL CONTROLS ---
+interface HighlightRing {
+    name: string;
+    absStart: number;
+    absEnd: number;
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+    radius: number;
+    color: string;
+    x2?: number; // Optional end horizontal position
+    y2?: number; // Optional end vertical position
+    w2?: number; // Optional end width
+    h2?: number; // Optional end height
+}
+
 // Edit these values to reposition, resize, or retime the highlight rings
-const HIGHLIGHT_RINGS = [
+const HIGHLIGHT_RINGS: HighlightRing[] = [
     {
         name: 'Left Pane - Users',
         absStart: 2063,
         absEnd: 2172,
-        x: 420,           // Centered on left side navigation
-        y: 454,           // Vertical position for Users item
-        w: 245,           // Ring width
-        h: 45,            // Ring height
-        radius: 12,       // Corner roundness
+        x: 420,
+        y: 454,
+        w: 245,
+        h: 45,
+        radius: 12,
         color: '#96CC39',
     },
     {
         name: 'Top Right - Add User',
         absStart: 2660,
         absEnd: 2707,
-        x: 1535,          // Top Right area
-        y: 404,           // Vertical position
-        w: 180,           // Ring width
-        h: 80,            // Ring height
-        radius: 20,       // Corner roundness
+        x: 1535,
+        y: 404,
+        w: 180,
+        h: 80,
+        radius: 20,
         color: '#96CC39',
     },
     {
         name: 'Left Pane - Roles',
         absStart: 2483,
         absEnd: 2600,
-        x: 420,           // Matching user's sidebar X
-        y: 520,           // Positioned below Users
-        w: 245,           // Matching sidebar width
-        h: 45,            // Matching sidebar height
+        x: 434,
+        y: 580,
+        w: 220,
+        h: 45,
         radius: 12,
         color: '#96CC39',
+    },
+    {
+        name: 'Main Screen - User Row',
+        absStart: 3000,
+        absEnd: 3274,
+        x: 1209,
+        y: 952,
+        w: 165,
+        h: 75,
+        radius: 20,
+        color: '#96CC39',
+        // Example: Add x2, y2, w2, h2 here to animate
+        x2: 1202,
+        y2: 952,
+        w2: 180,
+        h2: 75,
     }
 ];
 
@@ -69,13 +101,19 @@ export const Section4a_UserManagement: React.FC = () => {
                     [0, 1, 1, 0]
                 );
 
+                // Animated dimensions and position (defaults to same if ring.x2 etc are missing)
+                const animX = interpolate(frame, [relStart, relEnd], [ring.x, ring.x2 ?? ring.x]);
+                const animY = interpolate(frame, [relStart, relEnd], [ring.y, ring.y2 ?? ring.y]);
+                const animW = interpolate(frame, [relStart, relEnd], [ring.w, ring.w2 ?? ring.w]);
+                const animH = interpolate(frame, [relStart, relEnd], [ring.h, ring.h2 ?? ring.h]);
+
                 return (
                     <div key={index} style={{
                         position: 'absolute',
-                        top: ring.y,
-                        left: ring.x,
-                        width: ring.w,
-                        height: ring.h,
+                        top: animY,
+                        left: animX,
+                        width: animW,
+                        height: animH,
                         border: `4px solid ${ring.color}`,
                         borderRadius: `${ring.radius}px`,
                         boxShadow: `0 0 20px rgba(150, 204, 57, 0.6), inset 0 0 10px ${ring.color}`,
