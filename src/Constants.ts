@@ -9,7 +9,7 @@ export const DURATIONS = {
     ECOSYSTEM_HUB: 180,          // Slide 4: 6.00s (Snappier reveal)
     IMMUTABLE_LEDGER: 210,       // Slide 8: 7.00s (Reduced for snappier transition)
     PROFILE_OVERVIEW: 330,       // Full Video: 11.00s
-    DASHBOARD: 287,              // 9.57s
+    DASHBOARD: 1196,             // Exact Video: 39.87s (Verified)
     USER_MANAGEMENT: 1239,       // Trimmed (Manual: 1:04:26)
     ENTITY_VIEW: 1646,           // 54.87s
     ENTITY_REG: 4692,            // Exact Video: 156.40s (Verified)

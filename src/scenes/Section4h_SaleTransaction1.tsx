@@ -17,7 +17,7 @@ const RING_CONFIG = {
     glowOpacity: 0.6,    // Outer glow intensity
 };
 
-const SECTION_START_FRAME = 8731; // Cumulative frame before this section in Main.tsx (Verified via Studio)
+const SECTION_START_FRAME = 9640; // Updated to account for 909-frame shift in preceding content
 // -----------------------
 
 export const Section4h_SaleTransaction1: React.FC = () => {
