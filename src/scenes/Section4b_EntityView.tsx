@@ -52,6 +52,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 75,
         radius: 20,
         color: '#96CC39',
+    },
+    {
+        name: 'Top Right - Register Property',
+        absStart: 4622,
+        absEnd: 4947,
+        x: 1125,          // Top right button area
+        y: 948,           // Vertical position
+        w: 350,           // Width of the registration button
+        h: 80,            // Height of the button
+        radius: 20,
+        color: '#96CC39',
     }
 ];
 
