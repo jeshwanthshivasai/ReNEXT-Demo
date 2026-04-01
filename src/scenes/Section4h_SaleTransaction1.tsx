@@ -32,17 +32,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         color: '#96CC39',
         y2: 610, // Preserve the previous vertical animation
     },
-    {
-        name: 'New Highlight - Transaction Detail',
-        absStart: 10095,
-        absEnd: 10476,
-        x: 1376,          // Centered area
-        y: 608,
-        w: 510,
-        h: 120,
-        radius: 12,
-        color: '#96CC39',
-    },
+    // {
+    //     name: 'New Highlight - Transaction Detail',
+    //     absStart: 10095,
+    //     absEnd: 10476,
+    //     x: 1376,          // Centered area
+    //     y: 608,
+    //     w: 510,
+    //     h: 120,
+    //     radius: 2,
+    //     color: '#96CC39',
+    // },
     {
         name: 'Action - Eye Button',
         absStart: 9695,
@@ -57,13 +57,23 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
     {
         name: 'Workflow - Approval Status',
         absStart: 9770,
-        absEnd: 10413
-        ,
+        absEnd: 10281,
         x: 1374,          // Using your previous preferred 'workflow' X
         y: 730,           // Using your previous preferred 'workflow' Y
         w: 515,           // Wide highlight for the workflow banner
         h: 110,
         radius: 15,
+        color: '#96CC39',
+    },
+    {
+        name: 'Action - Eye Button (Review)',
+        absStart: 10723,
+        absEnd: 10797,
+        x: 1575,          // Using your previous preferred 'eye' X
+        y: 725,           // Using your previous preferred 'eye' Y
+        w: 60,            // Circular highlight
+        h: 60,
+        radius: 30,       // Circular radius
         color: '#96CC39',
     }
 ];
