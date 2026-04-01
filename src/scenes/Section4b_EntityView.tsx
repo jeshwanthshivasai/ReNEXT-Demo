@@ -30,6 +30,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 45,            // Sidebar height
         radius: 12,
         color: '#96CC39',
+    },
+    {
+        name: 'Main Content - Unit Detail',
+        absStart: 4022,
+        absEnd: 4087,
+        x: 1503,          // Centered in main view
+        y: 399,           // Positioned on a unit/entity record
+        w: 230,           // Wide highlight for table row
+        h: 75,
+        radius: 20,
+        color: '#96CC39',
     }
 ];
 
