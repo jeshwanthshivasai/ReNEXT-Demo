@@ -20,7 +20,17 @@ interface HighlightRing {
 }
 
 const HIGHLIGHT_RINGS: HighlightRing[] = [
-    // Add highlights here
+    {
+        name: 'Action - Eye Button',
+        absStart: 21965,
+        absEnd: 21993,
+        x: 1567,          // Using your previous preferred 'eye' X
+        y: 561,           // Using your previous preferred 'eye' Y
+        w: 60,            // Circular highlight
+        h: 60,
+        radius: 30,       // Circular radius
+        color: '#96CC39',
+    }
 ];
 
 const SECTION_START_FRAME = 21958; // Calculated start for Section4e
