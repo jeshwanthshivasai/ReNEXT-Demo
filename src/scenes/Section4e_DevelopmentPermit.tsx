@@ -63,6 +63,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 55,            // typical button height
         radius: 15,
         color: '#96CC39',
+    },
+    {
+        name: 'Action - Cancel Button',
+        absStart: 22515,
+        absEnd: 22930,
+        x: 1068,          // Positioned adjacent to create button
+        y: 872,
+        w: 220,
+        h: 60,
+        radius: 15,
+        color: '#96CC39',
     }
 ];
 
