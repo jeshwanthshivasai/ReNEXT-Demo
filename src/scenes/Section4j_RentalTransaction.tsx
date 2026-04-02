@@ -41,6 +41,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 60,
         radius: 30,
         color: '#96CC39',
+    },
+    {
+        name: 'Check - Rental Details',
+        absStart: 20756,
+        absEnd: 20816,
+        x: 1369,          // Dimensions from Sale Transaction 2 (most recent workflow block)
+        y: 510,
+        w: 509,
+        h: 235,
+        radius: 20,
+        color: '#96CC39',
     }
 ];
 
