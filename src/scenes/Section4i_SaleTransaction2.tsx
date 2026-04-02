@@ -30,6 +30,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 60,            // Height of the button
         radius: 20,
         color: '#96CC39',
+    },
+    {
+        name: 'Action - Initiate Sale Button',
+        absStart: 13851,
+        absEnd: 13898,
+        x: 1090,          // Centered horizontally
+        y: 924,           // Lower portion of the screen
+        w: 260,           // Standard button width
+        h: 60,            // Standard button height
+        radius: 12,
+        color: '#96CC39',
     }
 ];
 
