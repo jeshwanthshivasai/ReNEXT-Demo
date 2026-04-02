@@ -74,6 +74,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 45,
         radius: 8,
         color: '#96CC39',
+    },
+    {
+        name: 'Action - Eye Button',
+        absStart: 14661,
+        absEnd: 14713,
+        x: 1575,          // Using your previous preferred 'eye' X
+        y: 506,           // Using your previous preferred 'eye' Y
+        w: 60,            // Circular highlight
+        h: 60,
+        radius: 30,       // Circular radius
+        color: '#96CC39',
     }
 ];
 
