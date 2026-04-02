@@ -121,8 +121,8 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
     },
         {
         name: 'Check - Sidepane Sale Transaction',
-        absStart: 15745,
-        absEnd: 15800,
+        absStart: 15758,
+        absEnd: 15820,    // Adjusted: 15800 - 16 (trim offset)
         x: 399,           // Left sidepane area
         y: 687,           // Vertical position for the menu item
         w: 185,           // Width covering the menu label
@@ -146,6 +146,8 @@ export const Section4i_SaleTransaction2: React.FC = () => {
                 videoSrc={staticFile('screens/Sale Transaction 2.mp4')}
                 label="SALE TRANSACTION"
                 badgeText="ASSET TRANSFERS"
+                trimStart={2720} // Skip starts at relative frame 2720 (abs 15758)
+                trimEnd={2735}   // Skip ends at relative frame 2735
             />
 
             {HIGHLIGHT_RINGS.map((ring, index) => {

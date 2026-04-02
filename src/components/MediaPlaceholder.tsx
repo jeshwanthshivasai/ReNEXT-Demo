@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig, Video, Img } from 'remotion';
+import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig, Video, Img, Series } from 'remotion';
 import { COLOR_DARK_BLUE, COLOR_GREEN } from '../Constants';
 
 interface MediaPlaceholderProps {
@@ -11,6 +11,8 @@ interface MediaPlaceholderProps {
     borderRadius?: number;
     delay?: number;
     disableAnimation?: boolean;
+    trimStart?: number; // Relative frame to start skipping
+    trimEnd?: number;   // Relative frame to end the skip
 }
 
 export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
@@ -22,6 +24,8 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
     borderRadius = 20,
     delay = 0,
     disableAnimation = false,
+    trimStart,
+    trimEnd,
 }) => {
     const frame = useCurrentFrame();
     const { fps } = useVideoConfig();
@@ -94,7 +98,23 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
             }}>
                 {src ? (
                     type === 'video' ? (
-                        <Video src={src} muted style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        trimStart !== undefined && trimEnd !== undefined ? (
+                            <Series>
+                                <Series.Sequence durationInFrames={trimStart}>
+                                    <Video src={src} muted style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                                </Series.Sequence>
+                                <Series.Sequence durationInFrames={100000}> {/* Excess duration handled by parent sequence */}
+                                    <Video 
+                                        src={src} 
+                                        muted 
+                                        startFrom={trimEnd + 1} 
+                                        style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+                                    />
+                                </Series.Sequence>
+                            </Series>
+                        ) : (
+                            <Video src={src} muted style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                        )
                     ) : (
                         <Img src={src} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                     )
