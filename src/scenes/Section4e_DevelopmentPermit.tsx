@@ -52,6 +52,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 109,
         radius: 20,
         color: '#96CC39',
+    },
+    {
+        name: 'Action - Create Permit Button',
+        absStart: 22479,
+        absEnd: 22506,
+        x: 1549,          // standard top-right button X
+        y: 415,           // standard top-right button Y
+        w: 155,           // typical button width
+        h: 55,            // typical button height
+        radius: 15,
+        color: '#96CC39',
     }
 ];
 
