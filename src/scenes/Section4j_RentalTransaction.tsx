@@ -67,7 +67,7 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
     {
         name: 'Check - Rental Details',
         absStart: 21262,
-        absEnd: 21275,
+        absEnd: 21280,
         x: 1369,          // Dimensions from Sale Transaction 2 (most recent workflow block)
         y: 510,
         w: 509,
@@ -75,6 +75,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         radius: 20,
         color: '#96CC39',
     },
+    {
+        name: 'Workflow - Approval Status',
+        absStart: 21270,
+        absEnd: 21750,
+        x: 1369,          // Using your most recent 'Rental Details' coordinates
+        y: 690,
+        w: 509,
+        h: 130,
+        radius: 20,
+        color: '#96CC39',
+    }
 ];
 
 const SECTION_START_FRAME = 20645; // Calculated start for Section4j
