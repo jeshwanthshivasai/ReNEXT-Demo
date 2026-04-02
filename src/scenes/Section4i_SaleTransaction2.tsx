@@ -218,6 +218,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         radius: 8,
         color: '#96CC39',
     },
+    {
+        name: 'Action - Eye Button',
+        absStart: 18392,
+        absEnd: 18461,
+        x: 1576,          // Using your previous preferred 'eye' X
+        y: 506,           // Using your previous preferred 'eye' Y
+        w: 60,            // Circular highlight
+        h: 60,
+        radius: 30,       // Circular radius
+        color: '#96CC39',
+    },
 ];
 
 const SECTION_START_FRAME = 13038; // Calculated start for Section4i
