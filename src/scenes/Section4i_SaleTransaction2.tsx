@@ -89,7 +89,7 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
     {
         name: 'Workflow - Approval Status',
         absStart: 14720,
-        absEnd: 15000,
+        absEnd: 14959,
         x: 1376,          // Using your previous preferred 'workflow' X
         y: 510,           // Using your previous preferred 'workflow' Y
         w: 510,           // Wide highlight for the workflow banner
@@ -99,13 +99,35 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
     },
     {
         name: 'Workflow - Approval Status',
-        absStart: 15019,
+        absStart: 14959,
         absEnd: 15037,
         x: 1374,          // Using your previous preferred 'workflow' X
         y: 680,           // Using your previous preferred 'workflow' Y
         w: 515,           // Wide highlight for the workflow banner
         h: 110,
         radius: 15,
+        color: '#96CC39',
+    },
+    {
+        name: 'Workflow - Approval Status',
+        absStart: 15037,
+        absEnd: 15513,
+        x: 1376,          // Using your previous preferred 'workflow' X
+        y: 817,           // Using your previous preferred 'workflow' Y
+        w: 474,           // Wide highlight for the workflow banner
+        h: 180,
+        radius: 15,
+        color: '#96CC39',
+    },
+        {
+        name: 'Check - Sidepane Sale Transaction',
+        absStart: 15745,
+        absEnd: 15800,
+        x: 399,           // Left sidepane area
+        y: 740,           // Vertical position for the menu item
+        w: 185,           // Width covering the menu label
+        h: 45,
+        radius: 8,
         color: '#96CC39',
     },
 ];
