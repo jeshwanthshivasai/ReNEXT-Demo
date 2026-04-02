@@ -30,6 +30,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 60,
         radius: 30,       // Circular radius
         color: '#96CC39',
+    },
+    {
+        name: 'Check - Project Details',
+        absStart: 21997,
+        absEnd: 22037,
+        x: 1369,          // Dimensions from previous detail card blocks
+        y: 686,
+        w: 509,
+        h: 235,
+        radius: 20,
+        color: '#96CC39',
     }
 ];
 
