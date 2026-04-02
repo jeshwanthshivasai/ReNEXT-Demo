@@ -163,6 +163,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         radius: 15,
         color: '#96CC39',
     },
+    {
+        name: 'Check - Sidepane Sale Transaction',
+        absStart: 16941,
+        absEnd: 17065,
+        x: 399,           // Left sidepane area
+        y: 687,           // Vertical position for the menu item
+        w: 185,           // Width covering the menu label
+        h: 45,
+        radius: 8,
+        color: '#96CC39',
+    },
 ];
 
 const SECTION_START_FRAME = 13038; // Calculated start for Section4i
