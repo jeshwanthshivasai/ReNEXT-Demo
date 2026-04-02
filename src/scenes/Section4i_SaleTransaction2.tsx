@@ -124,7 +124,7 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         absStart: 15745,
         absEnd: 15800,
         x: 399,           // Left sidepane area
-        y: 740,           // Vertical position for the menu item
+        y: 687,           // Vertical position for the menu item
         w: 185,           // Width covering the menu label
         h: 45,
         radius: 8,
