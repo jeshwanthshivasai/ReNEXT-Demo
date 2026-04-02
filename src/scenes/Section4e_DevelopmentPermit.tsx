@@ -37,6 +37,8 @@ export const Section4e_DevelopmentPermit: React.FC = () => {
                 videoSrc={staticFile('screens/Development Permit.mov')}
                 label="DEVELOPMENT PERMIT"
                 badgeText="APPROVAL PORTAL"
+                trimStart={0}  // Skip starts at absolute frame 21958 (rel 0)
+                trimEnd={81}   // Skip ends at relative frame 81
             />
 
             {HIGHLIGHT_RINGS.map((ring, index) => {

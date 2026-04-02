@@ -100,9 +100,11 @@ export const MediaPlaceholder: React.FC<MediaPlaceholderProps> = ({
                     type === 'video' ? (
                         trimStart !== undefined && trimEnd !== undefined ? (
                             <Series>
-                                <Series.Sequence durationInFrames={trimStart}>
-                                    <Video src={src} muted style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                                </Series.Sequence>
+                                {trimStart > 0 && (
+                                    <Series.Sequence durationInFrames={trimStart}>
+                                        <Video src={src} muted style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                                    </Series.Sequence>
+                                )}
                                 <Series.Sequence durationInFrames={100000}> {/* Excess duration handled by parent sequence */}
                                     <Video 
                                         src={src} 
