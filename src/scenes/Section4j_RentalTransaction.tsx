@@ -30,6 +30,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 45,
         radius: 8,
         color: '#96CC39',
+    },
+    {
+        name: 'Action - Eye Button Row 4',
+        absStart: 20716,
+        absEnd: 20749,
+        x: 1567,          // Using standard eye button X
+        y: 669,           // Estimating Row 4 Y (506 + (3 * 90))
+        w: 60,
+        h: 60,
+        radius: 30,
+        color: '#96CC39',
     }
 ];
 
