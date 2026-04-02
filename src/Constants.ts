@@ -15,7 +15,7 @@ export const DURATIONS = {
     ENTITY_REG: 4632,            // Trimmed 60 frames (4632-4691 removed)
     SALE_TRANS_1: 3458,          // Exact Video: 115.24s (Verified)
     SALE_TRANS_2: 7607,          // Trimmed 16 (15758-15773) + 353 (20645-20997) frames
-    RENTAL_TRANS: 1365,          // Exact Video: 45.50s (Verified)
+    RENTAL_TRANS: 1313,          // Trimmed 52 frames (21958-22009 removed)
     DEV_PERMIT: 750,             // NEW: ~25.00s (Estimated)
     FINANCIAL_INTEL: 1003,       // 33.43s
     ANALYSIS_HUB: 717,           // Exact Video: 23.90s (Verified)
