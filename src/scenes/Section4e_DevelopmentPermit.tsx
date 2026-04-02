@@ -41,6 +41,17 @@ const HIGHLIGHT_RINGS: HighlightRing[] = [
         h: 235,
         radius: 20,
         color: '#96CC39',
+    },
+    {
+        name: 'Workflow - Approval Status',
+        absStart: 22196,
+        absEnd: 22460,
+        x: 1369,          // Dimensions from previous workflow blocks
+        y: 598,           // Positioned below the main details
+        w: 509,
+        h: 109,
+        radius: 20,
+        color: '#96CC39',
     }
 ];
 
